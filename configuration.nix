@@ -111,7 +111,10 @@
     # Add Nerf fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
+    
+    ghostty
 
+    vscode
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
