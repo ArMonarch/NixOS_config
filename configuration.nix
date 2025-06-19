@@ -107,6 +107,11 @@
     wget
     curl
     git
+  
+    # Add Nerf fonts
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
