@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -30,6 +30,54 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Enable OpenGL
+  hardware.graphics.enable = true;
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+
+  hardware.nvidia = {
+
+    # Modesetting is required.
+    modesetting.enable = true;
+  
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # of just the bare essentials.
+    powerManagement.enable = false;
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = true;
+
+    # Use the NVidia open source kernel module (not to be confused with the
+    # independent third-party "nouveau" open source driver).
+    # Support is limited to the Turing and later architectures. Full list of 
+    # supported GPUs is at: 
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Only available from driver 515.43.04+
+    open = true;
+
+    # Enable the Nvidia settings menu,
+	  # accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+
+    # Configuring Optimus PRIME for laptop
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+
+      offload.enable = true;
+      offload.enableOffloadCmd = true; # Provides `nvidia offload` command.
+    };
+
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Kathmandu";
@@ -97,6 +145,21 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install and Configure zsh
+  programs.zsh.enable = true;
+  programs.zsh.enableCompletion = true;
+  programs.zsh.autosuggestions.enable = true;
+  programs.zsh.syntaxHighlighting.enable = true;
+
+  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
+  environment.shellAliases = { ll = "ls -l"; ".." = "cd .."; };
+  users.users.frenzfries.shell =  pkgs.zsh;
+  
+  programs.zsh.ohMyZsh.enable = true;
+  programs.zsh.ohMyZsh.plugins = [ "git" "man" "python" ];
+  programs.zsh.ohMyZsh.theme = "robbyrussell";
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -114,7 +177,12 @@
     
     ghostty
 
-    vscode
+    vscode.fhs
+    # vscode-extensions.ms-python.python
+    # vscode-extensions.ms-python.vscode-pylance
+    # vscode-extensions.ms-python.black-formatter
+    # vscode-extensions.ziglang.vscode-zig
+    # vscode-extensions.enkia.tokyo-night
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
