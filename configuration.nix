@@ -5,20 +5,19 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-  
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
   # Enable the flake feature and accompanying new nix command-line tool.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub.enable = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.devices = ["nodev"];
+  boot.loader.grub.devices = [ "nodev" ];
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "frenzfries"; # Define your hostname.
@@ -41,7 +40,7 @@
 
     # Modesetting is required.
     modesetting.enable = true;
-  
+
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
@@ -61,12 +60,11 @@
     open = true;
 
     # Enable the Nvidia settings menu,
-	  # accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-
 
     # Configuring Optimus PRIME for laptop
     prime = {
@@ -137,9 +135,10 @@
     isNormalUser = true;
     description = "frenzfries";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
   # Install firefox.
@@ -152,13 +151,15 @@
   programs.zsh.syntaxHighlighting.enable = true;
 
   environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
-  environment.shellAliases = { ll = "ls -l"; ".." = "cd .."; };
-  users.users.frenzfries.shell =  pkgs.zsh;
-  
+  environment.shellAliases = {
+    ll = "ls -l";
+    ".." = "cd ..";
+  };
+  users.users.frenzfries.shell = pkgs.zsh;
+
   programs.zsh.ohMyZsh.enable = true;
   programs.zsh.ohMyZsh.plugins = [ "git" "man" "python" ];
   programs.zsh.ohMyZsh.theme = "robbyrussell";
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -166,23 +167,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
     git
-  
+
     # Add Nerf fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
-    
+
     ghostty
 
-    vscode.fhs
-    # vscode-extensions.ms-python.python
-    # vscode-extensions.ms-python.vscode-pylance
-    # vscode-extensions.ms-python.black-formatter
-    # vscode-extensions.ziglang.vscode-zig
-    # vscode-extensions.enkia.tokyo-night
+    vscode
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
