@@ -8,6 +8,8 @@
   imports = [ 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # legion 5 nvidia setup configuration
+    ./nvidia-configuration.nix
   ];
 
   # Enable the flake feature and accompanying new nix command-line tool.
@@ -126,16 +128,12 @@
     wget
     curl
     git
-    wl-clipboard
 
     # Add Nerf fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
 
     ghostty
-
-    
-
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
