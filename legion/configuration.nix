@@ -5,9 +5,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ 
-    # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # Add Legion 15ith6h hardware configuration.
+    ./nvidia-configuration.nix
   ];
 
   # Enable the flake feature and accompanying new nix command-line tool.
@@ -134,8 +135,12 @@
 
     ghostty
 
+    vscode
     
+    rhythmbox
+    vlc
 
+    qbittorrent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
