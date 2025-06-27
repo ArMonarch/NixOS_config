@@ -5,7 +5,7 @@
 { pkgs, ... }:
 
 let
-  theme-name = "kakaluo"; # [ "changli" "jianxin" "jinxi" "kakaluo" "yinlin" ]
+  theme-name = "jinxi"; # [ "changli" "jianxin" "jinxi" "kakaluo" "yinlin" ]
 in
 {
   imports = [ # Include the results of the hardware scan.
