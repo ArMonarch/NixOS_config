@@ -1,9 +1,9 @@
 {
-  description = "ArMonarch's NixOS flake";
+  description = "ArMonarch's NixOS Configuration flake";
 
   inputs = {
     # NixOS official package source, using the nixos-25.05 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
@@ -27,5 +27,4 @@
         ./legion/configuration.nix
       ];
     };
-  };
 }
