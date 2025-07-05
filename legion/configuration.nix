@@ -13,6 +13,9 @@ in
     ./hardware-configuration.nix
     # Add Legion 15ith6h nvidia hardware configuration.
     ./nvidia-configuration.nix
+
+    # Programs configurations
+    ./programs/zsh.nix
   ];
 
   # Enable the flake feature and accompanying new nix command-line tool.
@@ -112,31 +115,6 @@ in
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Install and Configure zsh
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.syntaxHighlighting.enable = true;
-
-  environment.shells = [
-    pkgs.bashInteractive
-    pkgs.zsh
-  ];
-  environment.shellAliases = {
-    ll = "ls -l";
-    ".." = "cd ..";
-    "git-pass" = "cat /home/frenzfries/Dev/Github_Access";
-  };
-  users.users.frenzfries.shell = pkgs.zsh;
-
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = [
-    "git"
-    "man"
-    "python"
-  ];
-  programs.zsh.ohMyZsh.theme = "robbyrussell";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
