@@ -157,13 +157,12 @@ in
     # Terminal of Choice
     ghostty
 
+    # Apps
     vscode
+    vlc
 
     # Best Music Listening App until I make One
     rhythmbox
-
-    # Apps
-    vlc
 
     # Aye Aye Captain
     qbittorrent
