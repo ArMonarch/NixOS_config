@@ -6,25 +6,30 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
+  outputs =
+    { nixpkgs, ... }@inputs:
+    {
 
-    nixosConfigurations.frenzfries = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./frenzfries/configuration.nix
-      ];
-    };
+      nixosConfigurations = {
 
-    nixosConfigurations.legion = nixpkgs.lib.nixosSystem {
-      modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./legion/configuration.nix
-      ];
+        frenzfries = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            # Import the previous configuration.nix we used,
+            # so the old configuration file still takes effect
+            ./frenzfries/configuration.nix
+          ];
+        };
+
+        legion = nixpkgs.lib.nixosSystem {
+          modules = [
+            {
+              _module.args = { inherit inputs; };
+            }
+            ./legion/configuration.nix
+          ];
+        };
+
+      };
     };
 }

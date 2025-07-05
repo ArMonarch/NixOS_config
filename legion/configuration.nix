@@ -5,17 +5,21 @@
 { pkgs, ... }:
 
 let
-  theme-name = "jinxi"; # [ "changli" "jianxin" "jinxi" "kakaluo" "yinlin" ]
+  theme-name = "changli"; # [ "changli" "jianxin" "jinxi" "kakaluo" "yinlin" ]
 in
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # Add Legion 15ith6h hardware configuration.
+    # Add Legion 15ith6h nvidia hardware configuration.
     ./nvidia-configuration.nix
   ];
 
   # Enable the flake feature and accompanying new nix command-line tool.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.timeout = 10;
@@ -97,11 +101,13 @@ in
   users.users.frenzfries = {
     isNormalUser = true;
     description = "frenzfries";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs;
-      [
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [
+      #  thunderbird
+    ];
   };
 
   # Install firefox.
@@ -113,7 +119,10 @@ in
   programs.zsh.autosuggestions.enable = true;
   programs.zsh.syntaxHighlighting.enable = true;
 
-  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
+  environment.shells = [
+    pkgs.bashInteractive
+    pkgs.zsh
+  ];
   environment.shellAliases = {
     ll = "ls -l";
     ".." = "cd ..";
@@ -122,7 +131,11 @@ in
   users.users.frenzfries.shell = pkgs.zsh;
 
   programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = [ "git" "man" "python" ];
+  programs.zsh.ohMyZsh.plugins = [
+    "git"
+    "man"
+    "python"
+  ];
   programs.zsh.ohMyZsh.theme = "robbyrussell";
 
   # Allow unfree packages
@@ -141,13 +154,18 @@ in
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
 
+    # Terminal of Choice
     ghostty
 
     vscode
-    
+
+    # Best Music Listening App until I make One
     rhythmbox
+
+    # Apps
     vlc
 
+    # Aye Aye Captain
     qbittorrent
   ];
 
