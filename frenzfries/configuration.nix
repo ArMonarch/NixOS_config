@@ -2,14 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [ 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # legion 5 nvidia setup configuration
-    ./nvidia-configuration.nix
   ];
 
   # Enable the flake feature and accompanying new nix command-line tool.
@@ -100,24 +98,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Install and Configure zsh
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.syntaxHighlighting.enable = true;
-
-  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
-  environment.shellAliases = {
-    ll = "ls -l";
-    ".." = "cd ..";
-    "git-pass" = "cat /home/frenzfries/Dev/Github_Access";
-  };
-  users.users.frenzfries.shell = pkgs.zsh;
-
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = [ "git" "man" "python" ];
-  programs.zsh.ohMyZsh.theme = "robbyrussell";
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -133,7 +113,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
 
-    ghostty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -162,5 +141,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
