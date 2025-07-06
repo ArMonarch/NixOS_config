@@ -14,6 +14,9 @@ in
     # Add Legion 15ith6h nvidia hardware configuration.
     ./nvidia-configuration.nix
 
+    # Bootloader Configuration
+    ./boot-loader/boot-loader.nix
+
     # Programs configurations
     ./programs/zsh.nix
   ];
@@ -23,19 +26,6 @@ in
     "nix-command"
     "flakes"
   ];
-
-  # Bootloader.
-  boot.loader.timeout = 10;
-  boot.loader.systemd-boot.enable = false;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.devices = [ "nodev" ];
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Grub Theme Install
-  # boot.loader.grub.extraFiles = extraFiles;
-  boot.loader.grub.theme = "/home/frenzfries/Dev/NixOS-Dotfile/NixOS-grub-theme/theme/${theme-name}";
 
   networking.hostName = "frenzfries-NixOS"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
