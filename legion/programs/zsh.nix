@@ -13,12 +13,13 @@
 
     histFile = "$HOME/.zsh_history";
     histSize = 2000;
+    
+    # NOTE: powerlevel10k has some bugs when initialized like this
+    # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 
-    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-
-    # ohMyZsh.enable = true;
-    # ohMyZsh.custom = "$HOME/.oh-my-zsh/custom/";
-    # ohMyZsh.theme = "robbyrussell";
+    ohMyZsh.enable = true;
+    ohMyZsh.custom = "$HOME/.oh-my-zsh/custom/";
+    ohMyZsh.theme = "robbyrussell";
 
     ohMyZsh.plugins = [ "git" "man" "python"];
   };
