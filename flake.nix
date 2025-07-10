@@ -27,6 +27,7 @@
               _module.args = { inherit inputs; };
             }
             ./legion/configuration.nix
+            { nixpkgs.config.cudaSupport = true; }
           ];
         };
 

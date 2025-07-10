@@ -2,11 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, config,... }:
 
-let
-  theme-name = "changli"; # [ "changli" "jianxin" "jinxi" "kakaluo" "yinlin" ]
-in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -126,8 +123,10 @@ in
     ghostty
 
     # Apps
+    lazygit
     vscode
     vlc
+    obs-studio
 
     # Best Music Listening App until I make One
     rhythmbox
