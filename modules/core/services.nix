@@ -8,6 +8,9 @@
     tumbler.enable = true; # Image/Video preview
     gnome.gnome-keyring.enable = true; # Gnome security credential manager
 
+    # Enable CUPS to print documents.
+    printing.enable = true;
+
     # Enable Sound with Pipewire
     pulseaudio.enable = false;
     pipewire = {
