@@ -8,7 +8,4 @@
 
   # Cooling Management
   services.thermald.enable = lib.mkDefault true;
-
-  # drivers.nvidia.enable = false;
-  # drivers.nvidia-prime.enable = false;
 }
