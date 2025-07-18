@@ -1,10 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -21,7 +18,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.devices = [ "nodev" ];
+  boot.loader.grub.devices = ["nodev"];
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "frenzfries-NixOS"; # Define your hostname.
@@ -117,7 +114,6 @@
     # Add Nerf fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
-
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
