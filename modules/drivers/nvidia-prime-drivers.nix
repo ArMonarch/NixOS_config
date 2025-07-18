@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{lib, ...}: {
   hardware = {
     nvidia = {
       # Config for hybrid Intel+Nvidia Laptop

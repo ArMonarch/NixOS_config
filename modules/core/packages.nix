@@ -10,6 +10,7 @@
     cmatrix # Matrix Movie Effect In Terminal
     cowsay # Great Fun Terminal Program
     ghostty # Great Terminal Emulator
+    git # version manager
     lazygit # Terminal UI for git
     rhythmbox # Goto Music Listening App until I make one
     scrcpy # Display & Control Android Device

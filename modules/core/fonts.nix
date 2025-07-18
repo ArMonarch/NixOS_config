@@ -13,8 +13,6 @@
       powerline-fonts
       roboto
       roboto-mono
-      symbola
-      terminus_font
     ];
   };
 }
