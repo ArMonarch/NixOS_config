@@ -7,10 +7,8 @@
   pkgs,
   modulesPath,
   ...
-}:
-
-{
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
@@ -18,27 +16,37 @@
     "ahci"
     "nvme"
     "usbhid"
-    "hid_lenovo"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/4776-9B59";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "fmask=0077"
+      "dmask=0077"
     ];
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/88f8ab22-7d25-4fe2-a8f5-11a5fffd0281";
+    device = "/dev/disk/by-uuid/0f37a2f5-881a-462c-8472-9b69eacaf505";
     fsType = "ext4";
   };
 
-  swapDevices = [ ];
+  # Windows partation as /home/frenzfries/Windows.
+  fileSystems."/home/frenzfries/Windows" = {
+    device = "/dev/disk/by-uuid/62A443AFA443850F";
+    fsType = "ntfs-3g";
+    options = [
+      "rw"
+      "uid=1000"
+      "x-gvfs-name=Windows"
+    ];
+  };
+
+  swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
