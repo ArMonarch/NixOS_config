@@ -23,9 +23,11 @@
     ghostty # Great Terminal Emulator
     git # version manager
     htop # Simple Terminal Based System Monitor
+    hyprpicker # Color Picker
     killall # For Killing All Instances Of Programs
     lazygit # Terminal UI for git
     libnotify # For Notifications
+    lolcat # Add Colors To Your Terminal Command Output
     lshw # Detailed Hardware Information
     ncdu # Disk Usage Analyzer With Ncurses Interface
     nerd-fonts.fira-code # Nerd Font fira-code
@@ -34,6 +36,7 @@
     rhythmbox # Goto Music Listening App until I make one
     ripgrep # Improved Grep
     scrcpy # Display & Control Android Device
+    socat # Needed For Screenshots
     tldr # what man page wish it could be
     qbittorrent # Aye Aye Captain
     v4l-utils # Used For Things Like OBS Virtual Camera
