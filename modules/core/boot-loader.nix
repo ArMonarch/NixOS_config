@@ -14,4 +14,6 @@ in {
 
   # Grub Theme Install
   boot.loader.grub.theme = "/home/frenzfries/Dev/NixOS_config/modules/core/grub-themes/${theme-profile}/${theme-name}";
+  # boot.loader.grub.splashImage = "/home/frenzfries/Dev/NixOS_config/modules/core/grub-themes/${theme-profile}/${theme-name}/background.jpg";
+  boot.loader.grub.splashImage = null;
 }
