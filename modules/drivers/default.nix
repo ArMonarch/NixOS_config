@@ -11,6 +11,8 @@
     allowUnfree = true;
   };
 
+  # Video drivers configuration for Xorg and Wayland
+  # For offloadding `modesetting` is needed additionally
   services.xserver.videoDrivers = [
     "modesetting"
     "nvidia"
@@ -20,8 +22,16 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       extraPackages = with pkgs; [
         nvidia-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
+        mesa
+        egl-wayland
+        vulkan-loader
+        vulkan-validation-layers
+        libva
       ];
     };
 
@@ -63,4 +73,18 @@
       };
     };
   };
+
+  # NOTE: Intel+Nvidia Hybrid configuration taken from Nixy(https://github.com/anotherhadi/nixy)
+  # Kernel parameters for better Wayland and Hyprland integration
+  boot.kernelParams = [
+    "nvidia-drm.modeset=1" # Enable mode setting for Wayland
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # Improves resume after sleep
+    "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3" # Performance/power optimizations
+  ];
+
+  environment.systemPackages = with pkgs; [
+    glxinfo
+    vulkan-tools
+    libva-utils
+  ];
 }
