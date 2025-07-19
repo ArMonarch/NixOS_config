@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  inherit (import ../../hosts/frenzfries/variables.nix) consoleKeyMap;
+  inherit (import ../../hosts/legion/variables.nix) consoleKeyMap;
 in {
   nix = {
     settings = {

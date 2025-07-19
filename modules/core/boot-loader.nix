@@ -13,5 +13,5 @@ in {
   boot.loader.timeout = 10;
 
   # Grub Theme Install
-  boot.loader.grub.theme = "/home/frenzfries/Dev/NixOS_config/legion/boot-loader/grub-themes-NixOS/${theme-profile}/${theme-name}";
+  boot.loader.grub.theme = "/home/frenzfries/Dev/NixOS_config/modules/core/grub-themes/${theme-profile}/${theme-name}";
 }

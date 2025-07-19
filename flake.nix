@@ -17,19 +17,6 @@
     host = "frenzfries";
   in {
     nixosConfigurations = {
-      legion = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit host;
-          inherit nixpkgs;
-          # inherit nixpkgs-unstable;
-          inherit inputs;
-        };
-        modules = [
-          ./legion/configuration.nix
-        ];
-      };
-
       # NOTE: The 'frenzfries' profile serves as the default NixOS configuration.
       # It provides a reliable, self-contained setup defined in ./hosts/frenzfries/default.nix,
       # with no external dependencies. This profile is based on the initial configuration
@@ -53,7 +40,7 @@
         ];
       };
 
-      nvidia = nixpkgs.lib.nixosSystem {
+      legion = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit host;

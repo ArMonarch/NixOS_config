@@ -1,6 +1,6 @@
 _: let
   # Import the host-specific variables.nix
-  # vars = import ../../hosts/frenzfries/variables.nix;
+  # vars = import ../../hosts/legion/variables.nix;
 in {
   imports = [
     ./boot.nix # boot configurations (packages, services, etc)

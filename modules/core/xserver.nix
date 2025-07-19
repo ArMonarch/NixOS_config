@@ -1,5 +1,5 @@
 {...}: let
-  inherit (import ../../hosts/frenzfries/variables.nix) keyboardLayout;
+  inherit (import ../../hosts/legion/variables.nix) keyboardLayout;
 in {
   services.xserver = {
     # Enable the X11 windowing system.
