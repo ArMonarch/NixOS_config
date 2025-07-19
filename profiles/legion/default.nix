@@ -1,8 +1,6 @@
-{...}: let
-  inherit (import ../../hosts/frenzfries/variables.nix) intelID nvidiaID;
-in {
+_: {
   imports = [
-    ../../hosts/frenzfries
+    ../../hosts/legion
     ../../modules/drivers
     ../../modules/core
   ];
