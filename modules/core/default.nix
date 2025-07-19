@@ -16,6 +16,9 @@ in {
     ./xserver.nix
 
     # TODO: add home manager
-    ./home/zsh.nix
+
+    # NOTE: Some packages that can be configured without home manager,
+    # are configured with nix.
+    ./home/fish.nix
   ];
 }

@@ -4,5 +4,6 @@
     networkmanager.enable = true; # Enable networking
   };
 
-  environment.systemPackages = with pkgs; [networkmanagerapplet];
+  # Not Needed
+  # environment.systemPackages = with pkgs; [networkmanagerapplet];
 }

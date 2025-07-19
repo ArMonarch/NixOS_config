@@ -4,17 +4,14 @@
   pkgs,
   ...
 }: {
-  services.xserver.videoDrivers = ["modesetting" "nvidia"];
-
-  # Blacklist nouveau to avoid conflicts
-  boot.blacklistedKernelModules = ["nouveau"];
-
-  # Configuration for proprietary packages
   nixpkgs.config = {
-    nvidia.acceptLicense = true;
-    cudaSupport = true; # enable cuda support
-    allowUnfree = true; # Simplified from specific allowUnfreePredicate
+    allowUnfree = true;
   };
+
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
   hardware = {
     graphics = {
@@ -27,6 +24,8 @@
     };
 
     nvidia = {
+      # Modesetting is Required
+      modesetting.enable = true;
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
       powerManagement.enable = lib.mkDefault false;
       # Fine-grained power management. Turns off GPU when not in use.
@@ -46,6 +45,20 @@
       nvidiaSettings = true;
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      # Config for hybrid Intel + Nvidia Laptop
+      prime = {
+        # Optimized configuration for switchable graphics laptops
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        # sync disabled as offload is generally better for laptops
+        sync.enable = false;
+        # Make sure to use the correct Bus ID values for your system!
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
   };
 }

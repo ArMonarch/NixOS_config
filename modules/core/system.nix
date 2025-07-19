@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   inherit (import ../../hosts/frenzfries/variables.nix) consoleKeyMap;
 in {
   nix = {

@@ -19,7 +19,7 @@
   ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
+  boot.extraModulePackages = [];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/4776-9B59";

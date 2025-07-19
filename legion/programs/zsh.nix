@@ -1,27 +1,21 @@
-{ pkgs, ...}:
-
-{
+{pkgs, ...}: {
   programs.zsh = {
-    enable = true;
+    enable = false;
     enableCompletion = true;
     autosuggestions.enable = true;
 
     syntaxHighlighting = {
       enable = true;
-      highlighters = [ "main" "brackets" "pattern" "regexp" "root" "line" ];
+      highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];
     };
 
     histFile = "$HOME/.zsh_history";
     histSize = 2000;
-    
-    # NOTE: powerlevel10k has some bugs when initialized like this
-    # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 
-    ohMyZsh.enable = true;
-    ohMyZsh.custom = "$HOME/.oh-my-zsh/custom/";
+    ohMyZsh.enable = false;
     ohMyZsh.theme = "robbyrussell";
 
-    ohMyZsh.plugins = [ "git" "man" "python"];
+    ohMyZsh.plugins = ["git" "man" "python"];
   };
 
   environment.shells = [

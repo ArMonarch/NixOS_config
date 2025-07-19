@@ -5,12 +5,12 @@
     # NixOS official package source, using the nixos-25.05 branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # NixOS official package source, using the nixos-unstable branch
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs = {
     nixpkgs,
-    nixpkgs-unstable,
+    # nixpkgs-unstable,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -31,7 +31,7 @@
         specialArgs = {
           inherit host;
           inherit nixpkgs;
-          inherit nixpkgs-unstable;
+          # inherit nixpkgs-unstable;
           inherit inputs;
         };
         modules = [
@@ -39,12 +39,12 @@
         ];
       };
 
-      legion2 = nixpkgs.lib.nixosSystem {
+      nvidia = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit host;
           inherit nixpkgs;
-          inherit nixpkgs-unstable;
+          # inherit nixpkgs-unstable;
           inherit inputs;
         };
         modules = [

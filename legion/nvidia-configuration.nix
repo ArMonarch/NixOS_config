@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  nixpkgs,
   ...
 }: {
   # Enable periodic SSD TRIM of mounted partitions in background.

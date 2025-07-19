@@ -2,16 +2,15 @@
   username = "frenzfries";
 in {
   users.mutableUsers = true;
+  users.defaultUserShell = pkgs.fish;
   users.users.${username} = {
     isNormalUser = true;
-    description = "Frenzfries";
-    # description = "Alice Q. User";
+    description = "${username}";
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.zsh;
-    ignoreShellProgramCheck = true;
+    shell = pkgs.fish;
   };
 
   nix.settings.allowed-users = ["${username}"];
