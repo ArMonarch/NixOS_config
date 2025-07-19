@@ -11,7 +11,6 @@
     cowsay # Great Fun Terminal Program
     eza # Beautiful ls Replacement
     ffmpeg # Terminal Video / Audio Editing
-    gedit # Simple Graphical Text Editor
     ghostty # Great Terminal Emulator
     git # version manager
     htop # Simple Terminal Based System Monitor

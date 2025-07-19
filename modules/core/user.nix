@@ -1,11 +1,13 @@
-{pkgs, ...}: let
-  username = "frenzfries";
-in {
+{
+  host,
+  pkgs,
+  ...
+}: {
   users.mutableUsers = true;
   users.defaultUserShell = pkgs.fish;
-  users.users.${username} = {
+  users.users.${host} = {
     isNormalUser = true;
-    description = "${username}";
+    description = "${host}";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -13,5 +15,5 @@ in {
     shell = pkgs.fish;
   };
 
-  nix.settings.allowed-users = ["${username}"];
+  nix.settings.allowed-users = ["${host}"];
 }
