@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     discord
-    handbrake
   ];
 
   # NOTE: Enable Obs Studion when needed from  here
