@@ -8,12 +8,9 @@
   services.thermald.enable = lib.mkDefault true;
 
   nixpkgs.config = {
-    nvidia.acceptLicense = true;
     allowUnfree = true;
   };
 
-  # Video drivers configuration for Xorg and Wayland
-  # For offloadding `modesetting` is needed additionally
   services.xserver.videoDrivers = [
     "modesetting"
     "nvidia"
@@ -23,16 +20,8 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      # package = config.boot.kernelPackages.nvidiaPackages.stable;
       extraPackages = with pkgs; [
         nvidia-vaapi-driver
-        vaapiVdpau
-        libvdpau-va-gl
-        mesa
-        egl-wayland
-        vulkan-loader
-        vulkan-validation-layers
-        libva
       ];
     };
 
@@ -98,9 +87,4 @@
     # MOZ_ENABLE_WAYLAND = "1"; # Wayland support for Firefox
   };
 
-  environment.systemPackages = with pkgs; [
-    glxinfo
-    vulkan-tools
-    libva-utils
-  ];
 }
