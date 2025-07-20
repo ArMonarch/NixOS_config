@@ -22,17 +22,26 @@
       enable32Bit = true;
       extraPackages = with pkgs; [
         nvidia-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
+        mesa
+        egl-wayland
+        vulkan-loader
+        vulkan-validation-layers
+        libva
       ];
     };
 
     nvidia = {
       # Modesetting is Required
       modesetting.enable = true;
-      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-      powerManagement.enable = lib.mkDefault false;
+      # Nvidia power management. Experimental, and ?`can cause sleep/suspend to fail.`
+      # NOTE:
+      # disabled powerManagement causes sleep/suspend fail for this system.
+      powerManagement.enable = lib.mkDefault true;
       # Fine-grained power management. Turns off GPU when not in use.
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-      powerManagement.finegrained = lib.mkDefault false;
+      powerManagement.finegrained = lib.mkDefault true;
 
       # Use the NVidia open source kernel module (not to be confused with the
       # independent third-party "nouveau" open source driver).
@@ -41,7 +50,8 @@
       # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
       # Only available from driver 515.43.04+
       # Currently alpha-quality/buggy, so false is currently the recommended setting.
-      open = false;
+      # NOTE: recommended for Turing and above.
+      open = true;
       # Enable the Nvidia settings menu,
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
@@ -67,24 +77,30 @@
   # NOTE: Intel+Nvidia Hybrid configuration taken from Nixy(https://github.com/anotherhadi/nixy)
   # Kernel parameters for better Wayland and Hyprland integration
   boot.kernelParams = [
-    # "nvidia-drm.modeset=1" # Enable mode setting for Wayland
+    "nvidia-drm.modeset=1" # Enable mode setting for Wayland
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # Improves resume after sleep
-    "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3" # Performance/power optimizations
+    # "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3" # Performance/power optimizations
   ];
 
   # Environment variables for better compatibility
   environment.variables = {
-    # LIBVA_DRIVER_NAME = "nvidia"; # Hardware video acceleration
-    # XDG_SESSION_TYPE = "wayland"; # Force Wayland
-    # GBM_BACKEND = "nvidia-drm"; # Graphics backend for Wayland
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # Use Nvidia driver for GLX
-    # WLR_NO_HARDWARE_CURSORS = "1"; # Fix for cursors on Wayland
-    # NIXOS_OZONE_WL = "1"; # Wayland support for Electron apps
-    # __GL_GSYNC_ALLOWED = "1"; # Enable G-Sync if available
-    # __GL_VRR_ALLOWED = "1"; # Enable VRR (Variable Refresh Rate)
-    # WLR_DRM_NO_ATOMIC = "1"; # Fix for some issues with Hyprland
-    # NVD_BACKEND = "direct"; # Configuration for new driver
-    # MOZ_ENABLE_WAYLAND = "1"; # Wayland support for Firefox
+    LIBVA_DRIVER_NAME = "nvidia"; # Hardware video acceleration
+    XDG_SESSION_TYPE = "wayland"; # Force Wayland
+    GBM_BACKEND = "nvidia-drm"; # Graphics backend for Wayland
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # Use Nvidia driver for GLX
+    WLR_NO_HARDWARE_CURSORS = "1"; # Fix for cursors on Wayland
+    NIXOS_OZONE_WL = "1"; # Wayland support for Electron apps
+    __GL_GSYNC_ALLOWED = "1"; # Enable G-Sync if available
+    __GL_VRR_ALLOWED = "1"; # Enable VRR (Variable Refresh Rate)
+    WLR_DRM_NO_ATOMIC = "1"; # Fix for some issues with Hyprland
+    NVD_BACKEND = "direct"; # Configuration for new driver
+    MOZ_ENABLE_WAYLAND = "1"; # Wayland support for Firefox
   };
 
+  # Additional useful packages
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+    glxinfo
+    libva-utils
+  ];
 }

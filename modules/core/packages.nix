@@ -14,7 +14,6 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.defaultPackages = with pkgs; [
-    # brightnessctl # For Screen Brightness Control
     cmatrix # Matrix Movie Effect In Terminal
     cowsay # Great Fun Terminal Program
     eza # Beautiful ls Replacement
@@ -36,7 +35,6 @@
     rhythmbox # Goto Music Listening App until I make one
     ripgrep # Improved Grep
     scrcpy # Display & Control Android Device
-    # socat # Needed For Screenshots
     tldr # what man page wish it could be
     qbittorrent # Aye Aye Captain
     # v4l-utils # Used For Things Like OBS Virtual Camera

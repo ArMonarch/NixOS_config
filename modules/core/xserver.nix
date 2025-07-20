@@ -3,7 +3,7 @@
 in {
   services.xserver = {
     # Enable the X11 windowing system.
-    enable = true;
+    enable = false;
 
     xkb.layout = "${keyboardLayout}";
     xkb.variant = "";
