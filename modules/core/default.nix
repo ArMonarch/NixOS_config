@@ -11,6 +11,7 @@ in {
     ./packages.nix
     ./security.nix
     ./services.nix
+    ./gdm.nix
     ./system.nix
     ./user.nix
     ./xserver.nix

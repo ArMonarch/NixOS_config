@@ -2,6 +2,7 @@
   programs = {
     firefox.enable = true;
     dconf.enable = true;
+
     # NOTE: Disable Gnome Email client,
     # Browser is engough for those
     geary.enable = false;
@@ -13,7 +14,7 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.defaultPackages = with pkgs; [
-    brightnessctl # For Screen Brightness Control
+    # brightnessctl # For Screen Brightness Control
     cmatrix # Matrix Movie Effect In Terminal
     cowsay # Great Fun Terminal Program
     eza # Beautiful ls Replacement
@@ -29,17 +30,16 @@
     libnotify # For Notifications
     lolcat # Add Colors To Your Terminal Command Output
     lshw # Detailed Hardware Information
-    ncdu # Disk Usage Analyzer With Ncurses Interface
     nerd-fonts.fira-code # Nerd Font fira-code
     nerd-fonts.jetbrains-mono # Nerd Font jetbrains-mono
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     rhythmbox # Goto Music Listening App until I make one
     ripgrep # Improved Grep
     scrcpy # Display & Control Android Device
-    socat # Needed For Screenshots
+    # socat # Needed For Screenshots
     tldr # what man page wish it could be
     qbittorrent # Aye Aye Captain
-    v4l-utils # Used For Things Like OBS Virtual Camera
+    # v4l-utils # Used For Things Like OBS Virtual Camera
     wget # Tool For Fetching Files With Links
     wl-clipboard # Clipboard helper for wayland
     vscode # Noo VsCode
