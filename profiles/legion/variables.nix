@@ -1,8 +1,4 @@
 {
-  # Boot Loader Themes
-  theme-profile = "wuthering-wave"; # [ "wuthering-wave" "hollow-knight"]
-  theme-name = "changli"; # [ "changli" "jianxin" "jinxi" "kakaluo" "yinlin" ]
-
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "ArMonarch";
   gitEmail = "praffulthapa12@gmail.com";
@@ -23,5 +19,5 @@
   nvidiaID = "PCI:1:0:0";
 
   # Set Stylix Image
-  stylixImage = ../../wallpapers/yin-yang.png;
+  stylixImage = ../../wallpapers/lost_abyss.jpg;
 }

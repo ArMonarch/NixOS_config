@@ -1,4 +1,4 @@
-{inputs}: {
+{inputs, ...}: {
   imports = [
     ./boot.nix # boot configurations (packages, services, boot-loader etc)
     ./fonts.nix # fonts packages
@@ -12,7 +12,7 @@
     ./user.nix # User configurations & home-manager initialization
     ./xserver.nix # xserver configurations
 
-    inputs.stylix.nixModules.stylix
+    inputs.stylix.nixosModules.stylix
     ./stylix.nix
 
     # NOTE: Some packages that can be configured without home manager,
