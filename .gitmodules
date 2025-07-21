@@ -1,6 +1,3 @@
 [submodule "legion/boot-loader/grub-themes-NixOS"]
 	path = legion/boot-loader/grub-themes-NixOS
 	url = https://github.com/ArMonarch/grub-themes-NixOS.git
-[submodule "modules/core/grub-themes"]
-	path = modules/core/grub-themes
-	url = https://github.com/ArMonarch/grub-themes-NixOS.git

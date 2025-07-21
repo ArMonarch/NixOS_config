@@ -6,6 +6,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # NixOS official package source, using the nixos-unstable branch
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Stylix theming frammwork.
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
