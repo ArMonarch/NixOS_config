@@ -1,9 +1,9 @@
-{pkgs, ...}: let
-  inherit (import ../../hosts/legion/variables.nix) consoleKeyMap;
-in {
+_: {
   nix = {
     settings = {
+      # Enable linking(hard link) insted of copying identical files / packages.
       auto-optimise-store = true;
+      # Enable Experimental Nix Flakes Support.
       experimental-features = [
         "nix-command"
         "flakes"
@@ -11,6 +11,7 @@ in {
     };
   };
 
+  # TODO: Import TimeZone through the variables.nix
   time.timeZone = "Asia/Kathmandu";
 
   # Select internationalisation properties.
@@ -27,8 +28,6 @@ in {
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  console.keyMap = "${consoleKeyMap}";
 
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05";

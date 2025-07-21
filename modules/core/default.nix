@@ -1,22 +1,17 @@
-_: let
-  # Import the host-specific variables.nix
-  # vars = import ../../hosts/legion/variables.nix;
-in {
+_: {
   imports = [
     ./boot.nix # boot configurations (packages, services, etc)
     ./boot-loader.nix # grub boot-loader config and themes
     ./fonts.nix # fonts packages
-    ./hardware.nix
-    ./network.nix
-    ./packages.nix
-    ./security.nix
-    ./services.nix
-    ./gdm.nix
-    ./system.nix
-    ./user.nix
-    ./xserver.nix
-
-    # TODO: add home manager
+    ./hardware.nix # extra hardware config from those generated through nixos-generate-config.
+    ./network.nix # network configurations.
+    ./packages.nix # Define packages
+    ./security.nix # Define security configurations
+    ./services.nix # Define needed Services
+    ./gdm.nix # Config for Display manager & Desktop manager
+    ./system.nix # System configurations
+    ./user.nix # User configurations & home-manager initialization
+    ./xserver.nix # xserver configurations
 
     # NOTE: Some packages that can be configured without home manager,
     # are configured with nix.

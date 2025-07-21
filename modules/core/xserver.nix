@@ -1,11 +1,12 @@
 {...}: let
-  inherit (import ../../hosts/legion/variables.nix) keyboardLayout;
+  inherit (import ../../profiles/legion/variables.nix) keyboardLayout consoleKeyMap;
 in {
   services.xserver = {
-    # Enable the X11 windowing system.
+    # Disable the X11 windowing system, and use Wayland Explicityly
     enable = false;
 
     xkb.layout = "${keyboardLayout}";
     xkb.variant = "";
   };
+  console.keyMap = "${consoleKeyMap}"; # NOTE: Needed ?
 }
