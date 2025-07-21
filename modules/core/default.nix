@@ -4,6 +4,7 @@
     ./fonts.nix # fonts packages
     ./hardware.nix # extra hardware config from those generated through nixos-generate-config.
     ./network.nix # network configurations.
+    ./nh.nix # Best nix helper tools
     ./packages.nix # Define packages
     ./security.nix # Define security configurations
     ./services.nix # Define needed Services
@@ -12,6 +13,7 @@
     ./user.nix # User configurations & home-manager initialization
     ./xserver.nix # xserver configurations
 
+    # Best theme generation
     inputs.stylix.nixosModules.stylix
     ./stylix.nix
 
