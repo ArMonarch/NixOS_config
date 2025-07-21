@@ -4,9 +4,10 @@
   pkgs,
   ...
 }: {
-  # Cooling Management
+  # Cooling Management.
   services.thermald.enable = lib.mkDefault true;
 
+  # Enable Unfree software.
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -15,6 +16,9 @@
     "modesetting"
     "nvidia"
   ];
+
+  # NOTE: Most of the settings for nvidia(kernelParams, Environment Variables) is
+  # refrenced from Nixy(https://github.com/anotherhadi/nixy)
 
   hardware = {
     graphics = {
@@ -79,6 +83,7 @@
   boot.kernelParams = [
     "nvidia-drm.modeset=1" # Enable mode setting for Wayland
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # Improves resume after sleep
+    # Enable ?
     # "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3" # Performance/power optimizations
   ];
 
