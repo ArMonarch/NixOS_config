@@ -1,7 +1,6 @@
 _: {
   imports = [
-    ./boot.nix # boot configurations (packages, services, etc)
-    ./boot-loader.nix # grub boot-loader config and themes
+    ./boot.nix # boot configurations (packages, services, boot-loader etc)
     ./fonts.nix # fonts packages
     ./hardware.nix # extra hardware config from those generated through nixos-generate-config.
     ./network.nix # network configurations.
