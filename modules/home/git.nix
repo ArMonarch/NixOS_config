@@ -17,7 +17,25 @@ in {
       merge.conflictStyle = "diff3";
     };
 
-    # Optional: FOSS-friendly Git aliases will be added through fish.nix
     aliases = {};
+  };
+
+  # Optional: FOSS-friendly Git aliases will be added through fish.nix
+  programs.fish = {
+    shellAbbrs = {
+      gb = "git branch";
+      gco = "git checkout";
+      gdf = "git diff";
+      gp = " git pull";
+      gP = "git push";
+      gs = "git status";
+    };
+
+    shellAliases = {
+      br = "git branch --sort=-committerdate";
+      com = "git commit -a";
+      gs = "git stash";
+      lg = "git log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %C(green)(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit";
+    };
   };
 }

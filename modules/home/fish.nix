@@ -27,25 +27,13 @@ in {
         };
       }
     ];
-    shellAbbrs = {
-      "gb" = "git branch";
-      "gc" = "git checkout";
-      "gp" = "git pull";
-      "gP" = "git push";
-      "gs" = "git status";
-      "gdf" = "git diff";
-    };
+    shellAbbrs = {};
     shellAliases = {
       ll = "ls -l";
       ".." = "cd ..";
       # Set the github access key file name
       "git-pass" = "cat /home/frenzfries/Dev/Github_Access";
       "gh-pass" = "wl-copy --paste-once $(git-pass)";
-      # FOOS-friendly git aliases
-      br = "git branch --sort=-committerdate";
-      com = "git commit -a";
-      gs = "git stash";
-      lg = "git log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %C(green)(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit";
     };
   };
 }
