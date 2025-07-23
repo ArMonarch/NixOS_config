@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   nix = {
     settings = {
       # Enable linking(hard link) insted of copying identical files / packages.
@@ -10,6 +10,11 @@ _: {
       ];
     };
   };
+
+  environment.shells = [
+    pkgs.fish
+  ];
+  programs.fish.enable = true;
 
   # TODO: Import TimeZone through the variables.nix
   time.timeZone = "Asia/Kathmandu";

@@ -16,9 +16,5 @@
     # Best theme generation
     inputs.stylix.nixosModules.stylix
     ./stylix.nix
-
-    # NOTE: Some packages that can be configured without home manager,
-    # are configured with nix.
-    ./home/fish.nix
   ];
 }
