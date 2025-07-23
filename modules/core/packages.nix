@@ -20,8 +20,8 @@
     fd # best alternative for find
     ffmpeg # Terminal Video / Audio Editing
     fzf # Command line fuzzy finder
-    ghostty # Great Terminal Emulator
-    git # version manager
+    ghostty # Great Terminal Emulator, Configured through home-manager
+    git # version manager, Configured through home-manager
     htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     killall # For Killing All Instances Of Programs
