@@ -17,10 +17,11 @@
     "nvidia"
   ];
 
+  # Activate When Needed
   # Preserve video memory after suspend
-  boot.kernelParams = [
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  ];
+  # boot.kernelParams = [
+  #   "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  # ];
 
   hardware = {
     graphics = {

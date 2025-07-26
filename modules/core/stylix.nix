@@ -67,11 +67,11 @@ in {
       };
     };
 
-    fonts.sizes = {
-      applications = 10;
-      terminal = 15;
-      desktop = 10;
-      popups = 10;
-    };
+    # fonts.sizes = {
+    #   applications = 10;
+    #   terminal = 15;
+    #   desktop = 10;
+    #   popups = 10;
+    # };
   };
 }
