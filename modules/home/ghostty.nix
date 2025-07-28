@@ -86,7 +86,7 @@ _: {
 
     # Theme
     window-theme = dark
-    theme = catppuccin-mocha
+    theme = rose-pine
 
     # Foreground & Background Customization
     background-opacity=0.98
