@@ -11,6 +11,7 @@
     ./gdm.nix # Config for Display manager & Desktop manager
     ./system.nix # System configurations
     ./user.nix # User configurations & home-manager initialization
+    ./virtualisation.nix
     ./xserver.nix # xserver configurations
 
     # Best theme generation
