@@ -52,8 +52,8 @@ _: {
     # resize-overlay-duration = 4s 200ms
 
     # Configure the font family for ghostty
-    font-family = "JetBrainsMono NF"
-    font-size = 11.5
+    font-family = "JetBrainsMono Nerd Font"
+    font-size = 11
 
     # Window Padding
     window-padding-x = 0
@@ -61,8 +61,8 @@ _: {
     window-padding-balance = true
 
     # Windows Decoration
-    title = "GhosTTY"
-    window-decoration = server
+    title = "Ghostty"
+    window-decoration = client
 
     # Default Window Size
     window-width = 170
@@ -86,7 +86,8 @@ _: {
 
     # Theme
     window-theme = dark
-    theme = rose-pine
+    # Automatic dark/light switching
+    theme = dark:rose-pine,light:rose-pine-dawn
 
     # Foreground & Background Customization
     background-opacity=0.98
