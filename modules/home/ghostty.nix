@@ -109,17 +109,17 @@ _: {
     keybind = ctrl+shift+\=new_split:right
     keybind = ctrl+shift+-=new_split:down
 
-    keybind = alt+s>j=goto_split:bottom
-    keybind = alt+s>k=goto_split:top
-    keybind = alt+s>h=goto_split:left
-    keybind = alt+s>l=goto_split:right
+    keybind = ctrl+shift+j=goto_split:bottom
+    keybind = ctrl+shift+k=goto_split:top
+    keybind = ctrl+shift+h=goto_split:left
+    keybind = ctrl+shift+l=goto_split:right
 
     keybind = alt+s>z=toggle_split_zoom
     keybind = alt+s>e=equalize_splits
 
     # General
     keybind = ctrl+q=close_surface
-    keybind = ctrl+g>t=toggle_window_decorations
+    keybind = alt+g=toggle_window_decorations
     keybind = ctrl+shift+n=new_window
     keybind = ctrl+shift+t=new_tab
   '';
