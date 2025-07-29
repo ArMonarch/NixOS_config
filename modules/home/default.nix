@@ -3,7 +3,7 @@ _: {
     ./fish.nix
     ./ghostty.nix
     ./git.nix
-    # ./rofi
+    ./gtk.nix
     ./stylix.nix
   ];
 }
