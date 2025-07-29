@@ -3,6 +3,51 @@ _: {
     enable = true;
     autoEnable = false;
 
-    targets = {};
+    targets = {
+      fzf.enable = true;
+      gtk = {
+        enable = true;
+        extraCss = ''
+          headerbar {
+              min-height: 10px;
+              padding: 0px;
+          }
+
+          headerbar entry,
+          headerbar spinbutton,
+          headerbar button,
+          headerbar separator {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 2px;
+            min-width: 0px;
+            min-height: 0px;
+          }
+
+          headerbar windowhandle {
+              margin-top: 0px;
+              margin-bottom: 0px;
+              min-height: 8px;
+              padding: 0px;
+          }
+
+          headerbar windowhandle box {
+              margin-top: 0px;
+              margin-bottom: 0px;
+              margin-left: 4px;
+              margin-right: 4px;
+              padding: 0px;
+              margin-top: 1px;
+              margin-bottom: 1px;
+          }
+
+          .default-decoration {
+              min-height: 0; /* let the entry and button drive the titlebar size */
+              padding: 0px;
+              margin-bottom: 0px;
+          }
+        '';
+      };
+    };
   };
 }
