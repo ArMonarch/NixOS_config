@@ -1,7 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    discord
-  ];
+  environment.systemPackages = [];
 
   # NOTE: Enable Obs Studion when needed from  here
   programs.obs-studio = {
