@@ -17,10 +17,12 @@
   environment.defaultPackages = with pkgs; [
     cmatrix # Matrix Movie Effect In Terminal
     eza # Beautiful ls Replacement
+    fastfetch # System information tool
     fd # best alternative for find
     ffmpeg # Terminal Video / Audio Editing
     fzf # Command line fuzzy finder
     git # version manager, Configured through home-manager
+    gnome-tweaks # Tool for customizing Gnome 3 Options
     htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     killall # For Killing All Instances Of Programs
@@ -29,13 +31,11 @@
     nerd-fonts.fira-code # Nerd Font fira-code
     nerd-fonts.jetbrains-mono # Nerd Font jetbrains-mono
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
-    # rhythmbox # Goto Music Listening App until I make one
     ripgrep # Improved Grep
     scrcpy # Display & Control Android Device
     tldr # what man page wish it could be
     qbittorrent # Aye Aye Captain
-    # quickemu # create and run optimised Windows, macOS and Linux virtual machines
-    # v4l-utils # Used For Things Like OBS Virtual Camera
+    v4l-utils # Used For Things Like OBS Virtual Camera
     wget # Tool For Fetching Files With Links
     wl-clipboard # Clipboard helper for wayland
     vscode # Noo VsCode, But Incase Needed
