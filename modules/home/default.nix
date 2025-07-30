@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./eza.nix
     ./fish.nix
     ./ghostty.nix
     ./git.nix

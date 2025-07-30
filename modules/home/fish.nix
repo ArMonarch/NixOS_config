@@ -29,7 +29,6 @@ in {
     ];
     shellAbbrs = {};
     shellAliases = {
-      ll = "ls -l";
       ".." = "cd ..";
       # Set the github access key file name
       "git-pass" = "cat /home/frenzfries/Dev/Github_Access";
