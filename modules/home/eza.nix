@@ -8,9 +8,8 @@ _: {
     enableZshIntegration = true;
 
     extraOptions = [
+      "--group-directories-first"
       "--header" # Show header row
-      "--icons=always"
-      "--classify" # append indicator (/, *, =, @, |)
       "--hyperlink" # make paths clickable in some terminals
     ];
   };
