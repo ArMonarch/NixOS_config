@@ -3,7 +3,7 @@
 in {
   services.xserver = {
     # Disable the X11 windowing system, and use Wayland Explicityly
-    enable = false;
+    enable = true;
 
     xkb.layout = "${keyboardLayout}";
     xkb.variant = "";

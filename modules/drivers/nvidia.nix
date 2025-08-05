@@ -19,9 +19,11 @@
 
   # Activate When Needed
   # Preserve video memory after suspend
-  # boot.kernelParams = [
-  #   "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  # ];
+  boot.kernelParams = [
+    # "nvidia-drm.modeset=1" # Enable mode setting for Wayland
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # Improves resume after sleep
+    # "nvidia.NVreg_RegistryDwords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMizerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3" # Performance/power optimizations
+  ];
 
   hardware = {
     graphics = {
@@ -37,12 +39,12 @@
     nvidia = {
       modesetting.enable = true;
       # Nvidia power management. Experimental, and ?`can cause sleep/suspend to fail.`
-      # powerManagement.enable = lib.mkDefault true;
+      powerManagement.enable = lib.mkForce true;
       # Fine-grained power management. Turns off GPU when not in use.
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-      # powerManagement.finegrained = lib.mkDefault true;
+      powerManagement.finegrained = lib.mkForce true;
 
-      open = false;
+      open = true;
 
       # Enable the Nvidia settings menu,
       # accessible via `nvidia-settings`.
@@ -56,9 +58,8 @@
           enable = true;
           enableOffloadCmd = true;
         };
-        # sync disabled as offload is generally better for laptops
         sync.enable = false;
-
+        reverseSync.enable = false;
         # Make sure to use the correct Bus ID values for your system!
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
