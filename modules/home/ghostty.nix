@@ -87,10 +87,10 @@ _: {
     # Theme
     window-theme = dark
     # Automatic dark/light switching
-    theme = dark:rose-pine,light:rose-pine-dawn
+    theme = light:rose-pine-dawn, dark:rose-pine
 
     # Foreground & Background Customization
-    background-opacity=0.98
+    background-opacity=0.96
     background-blur-radius = 60
 
     # Cursor Customization
