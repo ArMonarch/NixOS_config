@@ -18,7 +18,6 @@
   };
 
   boot.kernelModules = ["kvm-intel"];
-  # boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/4776-9B59";
@@ -35,16 +34,16 @@
   };
 
   # Windows partation mount as /home/frenzfries/Windows.
-  # fileSystems."/home/frenzfries/Windows" = {
-  #   device = "/dev/disk/by-uuid/62A443AFA443850F";
-  #   fsType = "ntfs-3g";
-  #   options = [
-  #     "rw"
-  #     "uid=1000"
-  #     "gid=1000"
-  #     "x-gvfs-name=Windows"
-  #   ];
-  # };
+  fileSystems."/home/frenzfries/Windows" = {
+    device = "/dev/disk/by-uuid/62A443AFA443850F";
+    fsType = "ntfs-3g";
+    options = [
+      "rw"
+      "uid=1000"
+      "gid=1000"
+      "x-gvfs-name=Windows"
+    ];
+  };
 
   swapDevices = [
     {
