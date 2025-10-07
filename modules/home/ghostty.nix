@@ -90,8 +90,8 @@ _: {
     theme = light:rose-pine-dawn, dark:rose-pine
 
     # Foreground & Background Customization
-    background-opacity=0.96
-    background-blur-radius = 60
+    background-opacity=0.94
+    background-blur-radius = 40
 
     # Cursor Customization
     shell-integration-features = no-cursor
