@@ -1,5 +1,4 @@
 {pkgs, ...}: let
-  fish-done-rev = "0bfe402753681f705a482694fcaf20c2bfc6deb7";
   fish-fzf-rev = "8920367cf85eee5218cc25a11e209d46e2591e7a";
 in {
   programs.fish = {
@@ -17,7 +16,6 @@ in {
         };
       }
     ];
-    shellAbbrs = {};
     shellAliases = {
       ".." = "cd ..";
       # Set the github access key file name
