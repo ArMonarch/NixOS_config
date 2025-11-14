@@ -7,16 +7,6 @@ in {
     package = pkgs.fish;
     generateCompletions = true;
     plugins = [
-      # TODO: Currently not working due too a bug, for Wayland & Gnome 48+
-      {
-        name = "Fish Done";
-        src = pkgs.fetchFromGitHub {
-          owner = "franciscolourenco";
-          repo = "done";
-          rev = "${fish-done-rev}";
-          hash = "sha256-WA6DBrPBuXRIloO05UBunTJ9N01d6tO1K1uqojjO0mo=";
-        };
-      }
       {
         name = "Fish_fzf";
         src = pkgs.fetchFromGitHub {
