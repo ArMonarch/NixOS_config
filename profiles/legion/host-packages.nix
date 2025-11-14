@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = [];
 
-  # NOTE: Enable Obs Studion when needed from  here
+  # NOTE: Enable Obs Studion when needed from here
   programs.obs-studio = {
     enable = false;
     package = pkgs.obs-studio.override {
