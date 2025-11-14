@@ -14,7 +14,8 @@ _: {
     ];
   };
 
-  # NOTE: Both shellAliases and shellAbbrs set through fish
+  # NOTE:
+  # Both shellAliases and shellAbbrs set through fish
   programs.fish = {
     shellAbbrs = {
       tree = "eza --tree";
