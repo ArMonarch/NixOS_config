@@ -10,7 +10,6 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-monochrome-emoji
-      powerline-fonts
       roboto
       roboto-mono
     ];
