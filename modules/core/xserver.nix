@@ -1,5 +1,5 @@
 {...}: let
-  inherit (import ../../profiles/legion/variables.nix) keyboardLayout consoleKeyMap;
+  inherit (import ../../profiles/legion/variables.nix) keyboardLayout;
 in {
   services.xserver = {
     enable = true;
