@@ -42,7 +42,6 @@
         specialArgs = {
           inherit host;
           inherit nixpkgs;
-          inherit nixpkgs-unstable;
           inherit inputs;
         };
         modules = [
