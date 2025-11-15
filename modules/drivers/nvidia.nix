@@ -7,11 +7,6 @@
   # Cooling Management.
   services.thermald.enable = lib.mkDefault true;
 
-  # Enable Unfree software.
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   services.xserver.videoDrivers = [
     "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
     "nvidia"
