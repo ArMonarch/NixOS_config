@@ -17,7 +17,6 @@
       package = lib.mkForce pkgs.rose-pine-gtk-theme;
     };
 
-    # TODO: Icon Theme
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
