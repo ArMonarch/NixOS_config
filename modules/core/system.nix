@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  inherit (../../profiles/legion/variables.nix) consoleKeyMap;
+  inherit (import ../../profiles/legion/variables.nix) consoleKeyMap;
 in {
   nix = {
     settings = {
@@ -39,6 +39,8 @@ in {
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
+  console.keyMap = "${consoleKeyMap}";
 
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05";
