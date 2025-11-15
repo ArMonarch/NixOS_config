@@ -1,4 +1,6 @@
 {
+  username = "frenzfries";
+
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "ArMonarch";
   gitEmail = "praffulthapa12@gmail.com";

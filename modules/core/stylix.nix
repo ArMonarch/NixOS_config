@@ -19,7 +19,7 @@ in {
     fonts = {
       monospace = {
         package = pkgs.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font Mono";
+        name = "JetBrainsMono Mono";
       };
 
       sansSerif = {
@@ -30,6 +30,13 @@ in {
       serif = {
         package = pkgs.adwaita-fonts;
         name = "Adwaita Sans";
+      };
+
+      sizes = {
+        applications = 12;
+        terminal = 15;
+        desktop = 11;
+        popups = 12;
       };
     };
 

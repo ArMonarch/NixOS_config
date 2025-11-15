@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  inherit (../../profiles/legion/variables.nix) consoleKeyMap;
+in {
   nix = {
     settings = {
       # Enable linking(hard link) insted of copying identical files / packages.
@@ -11,10 +13,14 @@
     };
   };
 
+  environment.variables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
+  programs.fish.enable = true;
   environment.shells = [
     pkgs.fish
   ];
-  programs.fish.enable = true;
 
   # TODO: Import TimeZone through the variables.nix
   time.timeZone = "Asia/Kathmandu";
