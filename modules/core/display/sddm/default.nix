@@ -1,13 +1,24 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   themes = pkgs.callPackage ./theme.nix {};
 in {
   environment.systemPackages = [
-    themes.serene
+    themes.frenzfries_demon
   ];
 
   services.displayManager = {
     sddm.enable = true;
-    sddm.theme = "serene";
+    sddm.package = lib.mkDefault pkgs.kdePackages.sddm;
+    sddm.extraPackages = with pkgs; [
+      kdePackages.qtsvg
+      kdePackages.qtmultimedia
+      kdePackages.qtvirtualkeyboard
+    ];
+
+    sddm.theme = "frenzfries_demon";
 
     sddm.wayland.enable = true;
     sddm.wayland.compositor = "kwin";
