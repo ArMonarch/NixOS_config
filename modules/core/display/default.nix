@@ -6,7 +6,7 @@
   services.desktopManager.plasma6.enable = true;
 
   imports = [
-    ./sddm.nix
+    ./sddm
     ./plasma.nix
   ];
 }
