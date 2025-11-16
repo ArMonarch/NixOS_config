@@ -1,10 +1,13 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: let
+  themes = pkgs.callPackage ./theme.nix {};
+in {
+  environment.systemPackages = [
+    themes.serene
+  ];
+
   services.displayManager = {
     sddm.enable = true;
+    sddm.theme = "serene";
 
     sddm.wayland.enable = true;
     sddm.wayland.compositor = "kwin";
