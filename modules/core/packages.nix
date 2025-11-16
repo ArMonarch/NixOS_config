@@ -39,6 +39,7 @@
     fd # best alternative for find
     fzf # Command line fuzzy finder
     git # version manager, Configured through home-manager
+    font-manager # font viewer
     htop # Simple Terminal Based System Monitor
     killall # For Killing All Instances Of Programs
     lazygit # Terminal UI for git
