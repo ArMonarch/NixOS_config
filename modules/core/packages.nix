@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   programs = {
     firefox.enable = true;
-    geary.enable = false;
-    seahorse.enable = true;
     # PERF: Gibrish print for command-not-found in fish,
     # fixed by disabling command-not-found.
     command-not-found.enable = false;
@@ -12,8 +10,6 @@
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [libxcrypt-legacy];
   };
-
-  programs.dconf.enable = true;
 
   programs.obs-studio = {
     enable = false;
@@ -31,19 +27,18 @@
     ];
   };
 
-  # Enable Unfree software.
+  # Enable Unfree & Broken software.
   nixpkgs.config = {
     allowUnfree = true;
+    allowBroken = true;
   };
 
   environment.defaultPackages = with pkgs; [
     cmatrix # Matrix Movie Effect In Terminal
-    eza # Beautiful ls Replacement
     fastfetch # System information tool
     fd # best alternative for find
     fzf # Command line fuzzy finder
     git # version manager, Configured through home-manager
-    gnome-tweaks # Tool for customizing Gnome 3 Options
     htop # Simple Terminal Based System Monitor
     killall # For Killing All Instances Of Programs
     lazygit # Terminal UI for git

@@ -57,7 +57,7 @@ _: {
 
     # Configure the font family for ghostty
     font-family = "JetBrainsMono Nerd Font"
-    font-size = 12
+    font-size = 11.5
 
     # Window Padding
     window-padding-x = 0
@@ -65,13 +65,13 @@ _: {
     window-padding-balance = true
 
     # Windows Decoration
-    title = "Ghostty"
+    # title = "Ghostty"
     window-decoration = client
 
     # Default Window Size
-    window-width = 170
+    window-width = 160
     window-height = 40
-    adjust-cell-height = 10%
+    # adjust-cell-height = 10%
 
     # Windows Position
     window-position-x = 0
@@ -86,15 +86,13 @@ _: {
     # Shell Integration
     shell-integration = detect
     quick-terminal-position = center
-    # shell-integration-features = sudo
 
     # Theme
-    window-theme = dark
     # Automatic dark/light switching
     theme = light:rose-pine-dawn, dark:rose-pine
 
     # Foreground & Background Customization
-    background-opacity=0.95
+    background-opacity=0.94
     background-blur-radius = 20
 
     # Cursor Customization

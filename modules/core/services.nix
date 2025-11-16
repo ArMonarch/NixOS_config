@@ -6,7 +6,7 @@
     gvfs.enable = true; # For Mounting USB & More
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/Video preview
-    gnome.gnome-keyring.enable = true; # Gnome security credential daemon
+    # gnome.gnome-keyring.enable = true; # Gnome security credential daemon
 
     # Enable CUPS to print documents.
     printing.enable = true;

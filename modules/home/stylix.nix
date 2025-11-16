@@ -3,10 +3,6 @@ _: {
     enable = true;
     autoEnable = false;
 
-    targets = {
-      gtk = {
-        enable = true;
-      };
-    };
+    targets.gtk.enable = true;
   };
 }

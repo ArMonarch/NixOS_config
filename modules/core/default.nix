@@ -12,7 +12,7 @@
     ./packages.nix # Define packages
     ./security.nix # Define security configurations
     ./services.nix # Define needed Services
-    ./gdm.nix # Config for Display manager & Desktop manager
+    ./display/default.nix # Config for Display manager & Desktop manager
     ./system.nix # System configurations
     ./user.nix # User configurations
     ./virtualisation.nix # virtualisation setup
@@ -24,21 +24,22 @@
 
     # Home Manager setup
     inputs.home-manager.nixosModules.home-manager
-  ];
-
-  # Add Home Manager
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = false;
-    backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs host;};
-    users.${host} = {
-      imports = [../home/default.nix];
-      home = {
-        username = "${host}";
-        homeDirectory = "/home/${host}";
-        stateVersion = "25.05";
+    # Add Home Manager
+    {
+      home-manager = {
+        useUserPackages = true;
+        useGlobalPkgs = true;
+        backupFileExtension = "backup";
+        extraSpecialArgs = {inherit inputs host;};
+        users.${host} = {
+          imports = [../home/default.nix];
+          home = {
+            username = "${host}";
+            homeDirectory = "/home/${host}";
+            stateVersion = "25.05";
+          };
+        };
       };
-    };
-  };
+    }
+  ];
 }
