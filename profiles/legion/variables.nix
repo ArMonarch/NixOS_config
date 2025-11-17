@@ -19,7 +19,4 @@
   # For Nvidia Prime support
   intelID = "PCI:0:2:0";
   nvidiaID = "PCI:1:0:0";
-
-  # Set Stylix Image
-  stylixImage = ../../wallpapers/lost_abyss.jpg;
 }
