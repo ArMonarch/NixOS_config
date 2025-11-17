@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   modulesPath,
@@ -16,6 +17,8 @@
     ];
     kernelModules = [];
   };
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   boot.kernelModules = ["kvm-intel"];
 
