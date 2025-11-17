@@ -1,6 +1,4 @@
-{pkgs, ...}: let
-  inherit (import ../../profiles/legion/variables.nix) stylixImage;
-in {
+{pkgs, ...}: {
   stylix = {
     enable = true;
     autoEnable = false;
@@ -13,8 +11,6 @@ in {
     };
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-
-    image = stylixImage;
 
     fonts = {
       monospace = {

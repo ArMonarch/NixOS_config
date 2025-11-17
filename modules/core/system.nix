@@ -18,9 +18,6 @@ in {
   };
 
   programs.fish.enable = true;
-  environment.shells = [
-    pkgs.fish
-  ];
 
   # TODO: Import TimeZone through the variables.nix
   time.timeZone = "Asia/Kathmandu";

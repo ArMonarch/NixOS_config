@@ -1,6 +1,6 @@
 _: {
   networking = {
-    hostName = "frenzfries_legion"; # Define your hostName.
+    hostName = "legion_frenzfries"; # Define your hostName.
     networkmanager.enable = true; # Enable networking
   };
 }
