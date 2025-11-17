@@ -16,6 +16,7 @@ in {
       kdePackages.qtsvg
       kdePackages.qtmultimedia
       kdePackages.qtvirtualkeyboard
+      kdePackages.qtwayland
     ];
 
     sddm.theme = "frenzfries_demon";
