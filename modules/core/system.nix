@@ -17,8 +17,6 @@ in {
     NIXOS_OZONE_WL = "1";
   };
 
-  programs.fish.enable = true;
-
   # TODO: Import TimeZone through the variables.nix
   time.timeZone = "Asia/Kathmandu";
 

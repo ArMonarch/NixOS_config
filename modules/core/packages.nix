@@ -27,6 +27,8 @@
     ];
   };
 
+  programs.fish.enable = true;
+
   # Enable Unfree & Broken software.
   nixpkgs.config = {
     allowUnfree = true;
