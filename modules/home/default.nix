@@ -7,7 +7,7 @@ _: {
     ./git.nix
     ./gtk.nix
     ./packages.nix
-    ./plasma/default.nix
+    ./plasma
     ./stylix.nix
   ];
 }
