@@ -13,6 +13,7 @@
     ./security.nix # Define security configurations
     ./services.nix # Define needed Services
     ./display/default.nix # Config for Display manager & Desktop manager
+    ./printing.nix # config for printing
     ./system.nix # System configurations
     ./user.nix # User configurations
     ./virtualisation.nix # virtualisation setup
