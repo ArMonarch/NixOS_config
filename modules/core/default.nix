@@ -1,8 +1,4 @@
-{
-  inputs,
-  host,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./boot.nix # boot configurations (packages, services, boot-loader etc)
     ./fonts.nix # fonts packages
@@ -19,7 +15,7 @@
     ./virtualisation.nix # virtualisation setup
     ./xserver.nix # xserver configurations
 
-    # Best theme generation
+    # theme generation
     inputs.stylix.nixosModules.stylix
     ./stylix.nix
 
