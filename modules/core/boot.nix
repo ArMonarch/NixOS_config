@@ -1,8 +1,14 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   boot = {
     kernelModules = ["v4l2loopback"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
   };
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   # Disable systemd-boot
   boot.loader.systemd-boot.enable = false;
