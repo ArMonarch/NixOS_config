@@ -1,5 +1,6 @@
 {
   host,
+  nixpkgs-unstable,
   inputs,
   ...
 }: {
@@ -7,9 +8,16 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs host;};
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit host;
+      inherit nixpkgs-unstable;
+      inherit (import ../../profiles/legion/variables.nix) system;
+    };
     users.${host} = {
-      imports = [../home/default.nix];
+      imports = [
+        ../home/default.nix
+      ];
       home = {
         username = "${host}";
         homeDirectory = "/home/${host}";

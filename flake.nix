@@ -53,9 +53,9 @@
         inherit system;
         specialArgs = {
           inherit host;
+          inherit inputs;
           inherit nixpkgs;
           inherit nixpkgs-unstable;
-          inherit inputs;
         };
         modules = [
           ./profiles/legion

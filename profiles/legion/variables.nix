@@ -1,5 +1,6 @@
 {
   username = "frenzfries";
+  system = "x86_64-linux";
 
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "ArMonarch";
