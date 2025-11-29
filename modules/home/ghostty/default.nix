@@ -12,7 +12,7 @@
     package = nixpkgs-unstable.legacyPackages.${system}.ghostty;
     config = {
       # Window Padding
-      window-padding-x = 0;
+      window-padding-x = 2;
       window-padding-y = 0;
       window-padding-balance = true;
 
@@ -23,8 +23,12 @@
       # Window Decoration
       window-decoration = "server";
 
+      shell-integration-features = "no-cursor, title, ssh-terminfo, ssh-env";
+
       # Cursor Customization
       cursor-style = "block";
+      cursor-style-blink = false;
+      mouse-hide-while-typing = true;
 
       # Configure the font family for ghostty
       font-family = "JetBrainsMono Nerd Font";
@@ -56,6 +60,7 @@
         "ctrl+shift+t=new_tab"
 
         "ctrl+q=close_surface"
+        "alt+g=toggle_window_decorations"
       ];
     };
   };
