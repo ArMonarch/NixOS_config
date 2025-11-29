@@ -10,6 +10,7 @@
   programs.frenzfries.ghostty = {
     enable = true;
     package = nixpkgs-unstable.legacyPackages.${system}.ghostty;
+    systemd.enable = true;
     config = {
       # Window Padding
       window-padding-x = 2;

@@ -33,18 +33,52 @@ in {
         See <https://ghostty.org/docs/config/reference> for more information.
       '';
     };
-  };
-
-  config = lib.mkIf cfg.enable {
-    home.packages = lib.optionals (cfg.package != {}) [cfg.package];
-    xdg.configFile = let
-    in {
-      "ghostty/config" = lib.mkIf (cfg.config != {}) {
-        source = keyValue.generate "ghostty-config" cfg.config;
+    systemd = lib.mkOption {
+      type = lib.types.submodule {
+        options = {
+          enable = lib.mkEnableOption "the Ghostty systemd user service";
+        };
       };
+      default = {};
+      description = ''
+        Configuration for Ghostty's systemd integration.
+        This enables additional speed and features.
+
+        See <https://ghostty.org/docs/linux/systemd> for more information.
+      '';
     };
   };
 
-  # xdg.configFile."systemd/user/app-com.mitchellh.ghostty.service".source = "${config.programs.frenzfries.ghostty.package}/share/systemd/user/app-com.mitchellh.ghostty.service";
-  # dbus.packages = [config.programs.frenzfries.ghostty.package];
+  config = lib.mkIf cfg.enable (
+    lib.mkMerge [
+      {
+        home.packages = lib.optionals (cfg.package != {}) [cfg.package];
+        xdg.configFile = let
+        in {
+          "ghostty/config" = lib.mkIf (cfg.config != {}) {
+            source = keyValue.generate "ghostty-config" cfg.config;
+          };
+        };
+      }
+
+      # systemd integration
+      (
+        lib.mkIf cfg.systemd.enable {
+          assertions = [
+            {
+              assertion = cfg.systemd.enable -> (cfg.package != null);
+              message = "programs.frenzfries.ghostty.systemd.enable cannot be true when programs.frenzfries.ghostty.package is null";
+            }
+            {
+              assertion = cfg.systemd.enable -> pkgs.stdenv.hostPlatform.isLinux;
+              message = "Ghostty systemd integration cannot be enabled for non-linux platforms";
+            }
+          ];
+
+          xdg.configFile."systemd/user/app-com.mitchellh.ghostty.service".source = "${cfg.package}/share/systemd/user/app-com.mitchellh.ghostty.service";
+          dbus.packages = [cfg.package];
+        }
+      )
+    ]
+  );
 }
