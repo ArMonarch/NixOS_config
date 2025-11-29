@@ -1,139 +1,62 @@
 {
-  pkgs,
-  config,
   nixpkgs-unstable,
   system,
   ...
 }: {
-  programs.ghostty = {
+  imports = [
+    ./ghostty.nix
+  ];
+
+  programs.frenzfries.ghostty = {
     enable = true;
     package = nixpkgs-unstable.legacyPackages.${system}.ghostty;
+    config = {
+      # Window Padding
+      window-padding-x = 0;
+      window-padding-y = 0;
+      window-padding-balance = true;
+
+      # Window Size
+      window-width = 160;
+      window-height = 40;
+
+      # Window Decoration
+      window-decoration = "server";
+
+      # Cursor Customization
+      cursor-style = "block";
+
+      # Configure the font family for ghostty
+      font-family = "JetBrainsMono Nerd Font";
+      font-size = 11.8;
+
+      # Theme
+      # Automatic dark/light switching
+      theme = "light:Rose Pine Dawn, dark:Rose Pine Moon";
+
+      # window transparency customization
+      background-opacity = 0.94;
+      background-blur-radius = 20;
+
+      # Resize Configuration
+      resize-overlay = "always";
+      resize-overlay-position = "bottom-right";
+
+      # Key Bindings
+      keybind = [
+        "ctrl+shift+|=new_split:right"
+        "ctrl+shift+-=new_split:down"
+
+        "ctrl+shift+j=goto_split:bottom"
+        "ctrl+shift+k=goto_split:top"
+        "ctrl+shift+h=goto_split:left"
+        "ctrl+shift+l=goto_split:right"
+
+        "ctrl+shift+n=new_window"
+        "ctrl+shift+t=new_tab"
+
+        "ctrl+q=close_surface"
+      ];
+    };
   };
-
-  # Ghostty Configuration file
-  xdg.configFile."ghostty/config".text = ''
-    # This is the configuration file for Ghostty.
-    #
-    # This template file has been automatically created at the following
-    # path since Ghostty couldn't find any existing config files on your system:
-    #
-    #   /home/frenzfries/.config/ghostty/config
-    #
-    # The template does not set any default options, since Ghostty ships
-    # with sensible defaults for all options. Users should only need to set
-    # options that they want to change from the default.
-    #
-    # Run `ghostty +show-config --default --docs` to view a list of
-    # all available config options and their default values.
-    #
-    # Additionally, each config option is also explained in detail
-    # on Ghostty's website, at https://ghostty.org/docs/config.
-    #
-    # Ghostty can reload the configuration while running by using the menu
-    # options or the bound key (default: Command + Shift + comma on macOS and
-    # Control + Shift + comma on other platforms). Not all config options can be
-    # reloaded while running; some only apply to new windows and others may require
-    # a full restart to take effect.
-
-    # Config syntax crash course
-    # ==========================
-    # # The config file consists of simple key-value pairs,
-    # # separated by equals signs.
-    # font-family = Iosevka
-    # window-padding-x = 2
-    #
-    # # Spacing around the equals sign does not matter.
-    # # All of these are identical:
-    # key=value
-    # key= value
-    # key =value
-    # key = value
-    #
-    # # Any line beginning with a # is a comment. It's not possible to put
-    # # a comment after a config option, since it would be interpreted as a
-    # # part of the value. For example, this will have a value of "#123abc":
-    # background = #123abc
-    #
-    # # Empty values are used to reset config keys to default.
-    # key =
-    #
-    # # Some config options have unique syntaxes for their value,
-    # # which is explained in the docs for that config option.
-    # # Just for example:
-    # resize-overlay-duration = 4s 200ms
-
-    # Configure the font family for ghostty
-    font-family = "JetBrainsMono Nerd Font"
-    font-size = 11.5
-
-    # Window Padding
-    window-padding-x = 0
-    window-padding-y = 0
-    window-padding-balance = true
-
-    # Windows Decoration
-    # title = "Ghostty"
-    window-decoration = client
-
-    # Default Window Size
-    window-width = 160
-    window-height = 40
-    # adjust-cell-height = 10%
-
-    # Windows Position
-    window-position-x = 0
-    window-position-y = 0
-
-    # Inherit Working Directory
-    window-inherit-working-directory = true
-
-    # Save Windows State
-    window-save-state = default
-
-    # Shell Integration
-    shell-integration = fish
-    quick-terminal-position = center
-
-    # Theme
-    # Automatic dark/light switching
-    # theme = light:rose-pine-dawn, dark:rose-pine
-    theme = light:Rose Pine Dawn, dark:Rose Pine Moon
-
-    # Foreground & Background Customization
-    background-opacity=0.94
-    background-blur-radius = 20
-
-    # Cursor Customization
-    shell-integration-features = no-cursor, ssh-terminfo, ssh-env
-    cursor-style = block
-    cursor-style-blink = true
-    cursor-invert-fg-bg = true
-    mouse-hide-while-typing = true
-
-    # Resize Configuration
-    resize-overlay = always
-    resize-overlay-position = bottom-right
-
-    # Key bindings
-    # split
-    keybind = ctrl+shift+\=new_split:right
-    keybind = ctrl+shift+-=new_split:down
-
-    keybind = ctrl+shift+j=goto_split:bottom
-    keybind = ctrl+shift+k=goto_split:top
-    keybind = ctrl+shift+h=goto_split:left
-    keybind = ctrl+shift+l=goto_split:right
-
-    keybind = alt+s>z=toggle_split_zoom
-    keybind = alt+s>e=equalize_splits
-
-    # General
-    keybind = ctrl+q=close_surface
-    keybind = alt+g=toggle_window_decorations
-    keybind = ctrl+shift+n=new_window
-    keybind = ctrl+shift+t=new_tab
-  '';
-
-  xdg.configFile."systemd/user/app-com.mitchellh.ghostty.service".source = "${config.programs.ghostty.package}/share/systemd/user/app-com.mitchellh.ghostty.service";
-  dbus.packages = [config.programs.ghostty.package];
 }
