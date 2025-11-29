@@ -5,15 +5,16 @@
 
     # load core modules one by one as needed
     ../../modules/core/boot.nix # boot configurations (packages, services, boot-loader etc)
+    ../../modules/core/display-manager.nix # Config for Display manager & Desktop manager
+    ../../modules/core/desktop-manager.nix # Config for Desktop manager
     ../../modules/core/fonts.nix # fonts packages
     ../../modules/core/hardware.nix # extra hardware config for bluetooth.
     ../../modules/core/network.nix # network configurations.
     ../../modules/core/nh.nix # Best nix helper tools
     ../../modules/core/packages.nix # Define packages
+    ../../modules/core/printing.nix # config for printing
     ../../modules/core/security.nix # Define security configurations
     ../../modules/core/services.nix # Define needed Services
-    ../../modules/core/display/default.nix # Config for Display manager & Desktop manager
-    ../../modules/core/printing.nix # config for printing
     ../../modules/core/system.nix # System configurations
     ../../modules/core/user.nix # User configurations
     ../../modules/core/virtualisation.nix # virtualisation setup
