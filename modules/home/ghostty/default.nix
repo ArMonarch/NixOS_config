@@ -20,6 +20,10 @@
       window-width = 160;
       window-height = 40;
 
+      # Window Position
+      window-position-x = 0;
+      window-position-y = 0;
+
       # Window Decoration
       window-decoration = "server";
 
