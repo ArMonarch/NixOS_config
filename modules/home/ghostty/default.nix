@@ -1,10 +1,17 @@
-_: {
+{
+  pkgs,
+  config,
+  nixpkgs-unstable,
+  system,
+  ...
+}: {
   programs.ghostty = {
     enable = true;
+    package = nixpkgs-unstable.legacyPackages.${system}.ghostty;
   };
 
   # Ghostty Configuration file
-  home.file."./.config/ghostty/config".text = ''
+  xdg.configFile."ghostty/config".text = ''
     # This is the configuration file for Ghostty.
     #
     # This template file has been automatically created at the following
@@ -84,19 +91,20 @@ _: {
     window-save-state = default
 
     # Shell Integration
-    shell-integration = detect
+    shell-integration = fish
     quick-terminal-position = center
 
     # Theme
     # Automatic dark/light switching
-    theme = light:rose-pine-dawn, dark:rose-pine
+    # theme = light:rose-pine-dawn, dark:rose-pine
+    theme = light:Rose Pine Dawn, dark:Rose Pine Moon
 
     # Foreground & Background Customization
     background-opacity=0.94
     background-blur-radius = 20
 
     # Cursor Customization
-    shell-integration-features = no-cursor
+    shell-integration-features = no-cursor, ssh-terminfo, ssh-env
     cursor-style = block
     cursor-style-blink = true
     cursor-invert-fg-bg = true
@@ -125,4 +133,7 @@ _: {
     keybind = ctrl+shift+n=new_window
     keybind = ctrl+shift+t=new_tab
   '';
+
+  xdg.configFile."systemd/user/app-com.mitchellh.ghostty.service".source = "${config.programs.ghostty.package}/share/systemd/user/app-com.mitchellh.ghostty.service";
+  dbus.packages = [config.programs.ghostty.package];
 }

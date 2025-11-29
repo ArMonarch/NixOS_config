@@ -3,7 +3,7 @@ _: {
     ./eza.nix
     ./fish.nix
     ./flameshot
-    ./ghostty.nix
+    ./ghostty
     ./git.nix
     ./gtk.nix
     ./packages.nix
