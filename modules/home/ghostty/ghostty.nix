@@ -14,6 +14,7 @@ in {
   options.programs.frenzfries.ghostty = {
     enable = lib.mkEnableOption "Ghostty";
     package = lib.mkPackageOption pkgs "ghostty" {};
+
     config = lib.mkOption {
       inherit (keyValue) type;
       default = {};
@@ -33,6 +34,7 @@ in {
         See <https://ghostty.org/docs/config/reference> for more information.
       '';
     };
+
     systemd = lib.mkOption {
       type = lib.types.submodule {
         options = {
@@ -46,6 +48,36 @@ in {
 
         See <https://ghostty.org/docs/linux/systemd> for more information.
       '';
+    };
+
+    plasma = {
+      type = lib.types.submodule {
+        options = {
+          shortcuts = lib.mkOption {
+            type = lib.types.submodule {
+              options = {
+                enable = lib.mkEnableOption "Ghostty plasma shortcut intergration";
+              };
+            };
+            default = {};
+          };
+        };
+      };
+      default = {};
+    };
+
+    desktopEntry = lib.mkOption {
+      type = lib.types.submodule {
+        options = {
+          value = lib.mkOption {
+            default = "com.mitchellh.ghostty.service";
+            readOnly = true;
+            description = "Ghostty desktio entry file name";
+          };
+        };
+      };
+      default = {};
+      description = '''';
     };
   };
 
