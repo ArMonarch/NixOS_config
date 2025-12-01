@@ -28,6 +28,7 @@
       # Window Decoration
       window-decoration = "server";
 
+      # shell integration features
       shell-integration-features = "no-cursor, title, ssh-terminfo, ssh-env";
 
       # Cursor Customization
