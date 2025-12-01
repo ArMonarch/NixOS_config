@@ -1,31 +1,19 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: let
-  cfg = config.kde.plasma.keymaps;
-  mkKeyVal = lib.mapAttrsToList (key: val: key + "=" + val);
+  cfg = config.plasma.keymaps;
 in {
-  options.kde.plasma.keymaps = {
+  imports = [../ghostty/ghostty.nix];
+
+  options.plasma.keymaps = {
     enable = lib.mkEnableOption "KDE Plasma Keymaps";
-
-    flameshot.enable = lib.mkEnableOption "Flameshot Screenshot utility Keymaps";
-    ghostty.enable = lib.mkEnableOption "Ghostty Keymaps";
-
-    settings = lib.mkOption {
-      type = lib.types.attrsOf (lib.types.nullOr lib.types.str);
-      default = {
-        "Name" = "Prafful Raj Thapa";
-      };
-      description = "";
-      example = "";
-    };
   };
 
-  config = lib.mkMerge [
-    (
-      lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable (
+    lib.mkMerge [
+      {
         xdg.configFile = {
           "kglobalshortcutsrc".text = ''
             [ActivityManager]
@@ -39,13 +27,6 @@ in {
           '';
         };
       }
-    )
-    (
-      lib.mkIf (cfg.settings != {}) {
-        xdg.configFile = {
-          "testsrc".text = lib.concatStringsSep "\n" (mkKeyVal cfg.settings);
-        };
-      }
-    )
-  ];
+    ]
+  );
 }

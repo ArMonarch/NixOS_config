@@ -1,9 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+_: {
   imports = [./keymaps.nix];
 
-  kde.plasma.keymaps.enable = true;
+  plasma.keymaps.enable = true;
 }
