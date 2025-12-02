@@ -6,14 +6,12 @@
 }: let
   cfg = config.programs.frenzfries.flameshot;
   iniFormat = pkgs.formats.ini {};
-  iniFile = iniFormat.generate "flameshot.ini" cfg.config;
+  iniFile = iniFormat.generate "flameshot.ini" cfg.settings;
 in {
   options.programs.frenzfries.flameshot = {
     enable = lib.mkEnableOption "Flameshot";
-
     package = lib.mkPackageOption pkgs "flameshot" {};
-
-    config = lib.mkOption {
+    settings = lib.mkOption {
       inherit (iniFormat) type;
       default = {};
       example = {
@@ -28,12 +26,36 @@ in {
         for available options.
       '';
     };
+    plasma.shortcuts = lib.mkOption {
+      type = lib.types.submodule {
+        options = {
+          enable = lib.mkEnableOption "flameshot plasma shortcut intergration";
+          launch = lib.mkOption {
+            type = lib.types.str;
+            default = "none";
+          };
+          launcher = lib.mkOption {
+            type = lib.types.str;
+            default = "none";
+          };
+          capture = lib.mkOption {
+            type = lib.types.str;
+            default = "none";
+          };
+          configure = lib.mkOption {
+            type = lib.types.str;
+            default = "none";
+          };
+        };
+      };
+      default = {};
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [cfg.package];
+    home.packages = lib.optionals (cfg.package != {}) [cfg.package];
 
-    xdg.configFile = lib.mkIf (cfg.config != {}) {
+    xdg.configFile = lib.mkIf (cfg.settings != {}) {
       "flameshot/flameshot.ini".source = iniFile;
     };
   };
