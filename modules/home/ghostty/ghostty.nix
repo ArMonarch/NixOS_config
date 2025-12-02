@@ -50,34 +50,21 @@ in {
       '';
     };
 
-    plasma = {
+    plasma.shortcuts = lib.mkOption {
       type = lib.types.submodule {
         options = {
-          shortcuts = lib.mkOption {
-            type = lib.types.submodule {
-              options = {
-                enable = lib.mkEnableOption "Ghostty plasma shortcut intergration";
-              };
-            };
-            default = {};
+          enable = lib.mkEnableOption "Ghostty plasma shortcut intergration";
+          launch = lib.mkOption {
+            type = lib.types.str;
+            default = "none";
+          };
+          new-window = lib.mkOption {
+            type = lib.types.str;
+            default = "none";
           };
         };
       };
       default = {};
-    };
-
-    desktopEntry = lib.mkOption {
-      type = lib.types.submodule {
-        options = {
-          value = lib.mkOption {
-            default = "com.mitchellh.ghostty.service";
-            readOnly = true;
-            description = "Ghostty desktio entry file name";
-          };
-        };
-      };
-      default = {};
-      description = '''';
     };
   };
 

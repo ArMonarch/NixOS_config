@@ -11,6 +11,11 @@
     enable = true;
     package = nixpkgs-unstable.legacyPackages.${system}.ghostty;
     systemd.enable = true;
+    plasma.shortcuts = {
+      enable = true;
+      launch = "Ctrl+Alt+t";
+      new-window = "none";
+    };
     config = {
       # Window Padding
       window-padding-x = 2;
