@@ -3,9 +3,9 @@ _: {
     enable = true;
     icons = "auto";
     git = true;
-    enableBashIntegration = true;
+    enableBashIntegration = false;
     enableFishIntegration = true;
-    enableZshIntegration = true;
+    enableZshIntegration = false;
 
     extraOptions = [
       "--group-directories-first"

@@ -20,7 +20,7 @@ in {
       ".." = "cd ..";
       # Set the github access key file name
       "git-pass" = "cat /home/frenzfries/Dev/Github_Access";
-      "gh-pass" = "wl-copy --paste-once $(git-pass)";
+      "gh-pass" = "wl-copy $(git-pass)";
     };
   };
 }

@@ -13,9 +13,10 @@ in {
       # 12 hrs = 43,200
       # 6 hrs = 21,600
       # 2 hrs = 7,200
-      credential.helper = "cache --timeout=21600";
-      # credential.helper = "store";
-      init.defaultBranch = "master"; # Set default new branches to 'master'
+      # credential.helper = "cache --timeout=21600";
+      credential.helper = "store";
+      # Set default new branches to 'master'
+      init.defaultBranch = "master";
       # FOSS-friendly settings
       log.decorate = "full"; # Show branch/tag info in git log
       log.date = "iso"; # ISO 8601 date format
