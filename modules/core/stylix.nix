@@ -8,6 +8,7 @@
       console.enable = true;
       grub.enable = true;
       gnome.enable = true;
+      fish.enable = true;
     };
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";

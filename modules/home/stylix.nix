@@ -4,5 +4,6 @@ _: {
     autoEnable = false;
 
     targets.gtk.enable = true;
+    targets.fish.enable = true;
   };
 }
