@@ -56,6 +56,7 @@
           inherit inputs;
           inherit nixpkgs;
           inherit nixpkgs-unstable;
+          inherit system;
         };
         modules = [
           ./profiles/legion

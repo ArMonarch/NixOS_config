@@ -26,6 +26,6 @@
 
     # Home Manager setup
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/core/home-manager.nix
+    ./home.nix
   ];
 }
