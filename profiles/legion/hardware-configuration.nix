@@ -20,16 +20,28 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/fb1bdd79-e274-40d4-a064-d9b41b6c0ada";
-      fsType = "btrfs";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/fb1bdd79-e274-40d4-a064-d9b41b6c0ada";
+    fsType = "btrfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/FDF9-56F4";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/FDF9-56F4";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
+  # Windows partation mount as /home/frenzfries/Windows.
+  fileSystems."/home/frenzfries/Windows" = {
+    device = "/dev/disk/by-uuid/62A443AFA443850F";
+    fsType = "ntfs-3g";
+    options = [
+      "rw"
+      "uid=1000"
+      "gid=1000"
+      "x-gvfs-name=Windows"
+    ];
+  };
 
   swapDevices = [];
 
