@@ -19,8 +19,8 @@ in {
     shellAliases = {
       ".." = "cd ..";
       # Set the github access key file name
-      "git-pass" = "cat /home/frenzfries/Dev/Github_Access";
-      "gh-pass" = "wl-copy $(git-pass)";
+      "git-pass" = "cat /home/frenzfries/Project/GitHub_Access";
+      "gh-pass" = "wl-copy < /home/frenzfries/Project/GitHub_Access";
     };
   };
 }
