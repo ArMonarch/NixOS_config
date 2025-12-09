@@ -17,7 +17,7 @@
     ../../modules/core/services.nix # Define needed Services
     ../../modules/core/system.nix # System configurations
     ../../modules/core/user.nix # User configurations
-    ../../modules/core/virtualisation.nix # virtualisation setup
+    # ../../modules/core/virtualisation.nix # virtualisation setup
     ../../modules/core/xserver.nix # xserver configurations
 
     # theme generation

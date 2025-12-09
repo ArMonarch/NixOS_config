@@ -4,7 +4,8 @@
   inputs,
   system,
   ...
-}: {
+}:
+{
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -27,6 +28,7 @@
         ../../modules/home/flameshot/default.nix
         ../../modules/home/ghostty/default.nix
         ../../modules/home/plasma/default.nix
+        ../../modules/home/spectacle/default.nix
       ];
       home = {
         username = "${host}";

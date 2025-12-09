@@ -2,11 +2,12 @@
   host,
   pkgs,
   ...
-}: {
-  imports = [./flameshot.nix];
+}:
+{
+  imports = [ ./flameshot.nix ];
 
   programs.frenzfries = {
-    flameshot.enable = true;
+    flameshot.enable = false;
     flameshot.package = pkgs.flameshot;
     flameshot.plasma.shortcuts = {
       enable = true;
