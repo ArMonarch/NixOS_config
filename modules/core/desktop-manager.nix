@@ -6,6 +6,5 @@
     pkgs.kdePackages.kate
     pkgs.kdePackages.kwallet
     pkgs.kdePackages.kwalletmanager
-    pkgs.kdePackages.spectacle
   ];
 }

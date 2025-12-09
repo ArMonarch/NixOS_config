@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  inherit (import ../../profiles/legion/variables.nix) consoleKeyMap;
+  inherit (import ../../profiles/lunar/variables.nix) consoleKeyMap;
 in {
   nix = {
     settings = {

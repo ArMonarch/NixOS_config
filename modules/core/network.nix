@@ -1,6 +1,8 @@
-_: {
+_: let
+  inherit (import ../../profiles/lunar/variables.nix) hostname;
+in {
   networking = {
-    hostName = "legion_frenzfries"; # Define your hostName.
+    hostName = hostname; # Define your hostName.
     networkmanager.enable = true; # Enable networking
   };
 }

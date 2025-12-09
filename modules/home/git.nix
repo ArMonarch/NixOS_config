@@ -1,5 +1,5 @@
 _: let
-  inherit (import ../../profiles/legion/variables.nix) gitUsername gitEmail;
+  inherit (import ../../profiles/lunar/variables.nix) gitUsername gitEmail;
 in {
   programs.git = {
     enable = true;

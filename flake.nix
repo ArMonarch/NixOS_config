@@ -49,7 +49,7 @@
         ];
       };
 
-      legion = nixpkgs.lib.nixosSystem {
+      lunar = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit host;
@@ -59,7 +59,7 @@
           inherit system;
         };
         modules = [
-          ./profiles/legion
+          ./profiles/lunar/default.nix
         ];
       };
     };

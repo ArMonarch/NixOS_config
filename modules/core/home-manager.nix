@@ -12,7 +12,7 @@
       inherit inputs;
       inherit host;
       inherit nixpkgs-unstable;
-      inherit (import ../../profiles/legion/variables.nix) system;
+      inherit (import ../../profiles/lunar/variables.nix) system;
     };
     users.${host} = {
       imports = [
