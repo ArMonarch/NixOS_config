@@ -3,8 +3,9 @@
   lib,
   modulesPath,
   ...
-}: {
-  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
+}:
+{
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd = {
     availableKernelModules = [
@@ -14,11 +15,11 @@
       "nvme"
       "usbhid"
     ];
-    kernelModules = [];
+    kernelModules = [ ];
   };
 
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/fb1bdd79-e274-40d4-a064-d9b41b6c0ada";
@@ -28,7 +29,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/FDF9-56F4";
     fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   # Windows partation mount as /home/frenzfries/Windows.

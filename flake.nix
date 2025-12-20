@@ -62,10 +62,10 @@
             inherit system;
             specialArgs = {
               inherit host;
+              inherit system;
               inherit inputs;
               inherit nixpkgs;
               inherit nixpkgs-unstable;
-              inherit system;
             };
             modules = [
               ./profiles/lunar/default.nix
