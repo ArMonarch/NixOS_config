@@ -2,7 +2,8 @@
   nixpkgs-unstable,
   system,
   ...
-}: {
+}:
+{
   imports = [
     ./ghostty.nix
   ];
@@ -18,7 +19,7 @@
     };
     config = {
       # Window Padding
-      window-padding-x = 2;
+      window-padding-x = 0;
       window-padding-y = 0;
       window-padding-balance = true;
 
@@ -43,7 +44,8 @@
 
       # Configure the font family for ghostty
       font-family = "JetBrainsMono Nerd Font";
-      font-size = 11.8;
+      font-size = 12;
+      adjust-cell-height = "1.20%";
 
       # Theme
       # Automatic dark/light switching
