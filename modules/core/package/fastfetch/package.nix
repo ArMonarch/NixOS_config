@@ -1,4 +1,0 @@
-{ stdenv, ... }:
-{
-  fastfetch = stdenv.mkDerivation { };
-}
