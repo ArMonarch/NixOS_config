@@ -55,13 +55,15 @@
 
         lunar =
           let
-            host = "frenzfries";
+            inherit (import ./profiles/lunar/variables.nix) host;
+            inherit (import ./profiles/lunar/variables.nix) hostname;
             system = "x86_64-linux";
           in
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
               inherit host;
+              inherit hostname;
               inherit system;
               inherit inputs;
               inherit nixpkgs;

@@ -1,16 +1,9 @@
 {
+  host = "frenzfries";
   hostname = "frenzfries_lunar";
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "ArMonarch";
   gitEmail = "praffulthapa12@gmail.com";
-
-  # Program Options
-  # Set Default Browser (google-chrome-stable for google-chrome)
-  browser = "firefox";
-
-  # Available Options:
-  # Kitty, ghostty, wezterm
-  terminal = "ghostty"; # Set Default System Terminal
 
   keyboardLayout = "us";
   consoleKeyMap = "us";
