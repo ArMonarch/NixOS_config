@@ -13,6 +13,7 @@
     ../../modules/core/network.nix # network configurations.
     ../../modules/core/nh.nix # Best nix helper tools
     ../../modules/core/packages.nix # Define packages
+    ../../modules/core/package/fastfetch/default.nix # define and configure fastfetch package
     ../../modules/core/printing.nix # config for printing
     ../../modules/core/security.nix # Define security configurations
     ../../modules/core/services.nix # Define needed Services

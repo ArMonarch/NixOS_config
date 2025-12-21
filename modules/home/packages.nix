@@ -2,10 +2,10 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     cmatrix # Matrix Movie Effect In Terminal
-    fastfetch # System information tool
     font-manager # font viewer
     lazygit # Terminal UI for git
     nyaa # TUI app for searching anime torrents.
