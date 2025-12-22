@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, nixify-pkgs, ... }:
+{
   programs = {
     firefox.enable = true;
     command-not-found.enable = false;
@@ -6,7 +7,7 @@
 
   programs = {
     nix-ld.enable = true;
-    nix-ld.libraries = with pkgs; [libxcrypt-legacy];
+    nix-ld.libraries = with pkgs; [ libxcrypt-legacy ];
   };
 
   programs.obs-studio = {
@@ -33,15 +34,18 @@
     allowBroken = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    htop # Simple Terminal Based System Monitor
-    git # version manager, Configured through home-manager
-    killall # For Killing All Instances Of Programs
-    pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
-    ripgrep # Improved Grep
-    tldr # what man page wish it could be
-    wget # Tool For Fetching Files With Links
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      htop # Simple Terminal Based System Monitor
+      git # version manager, Configured through home-manager
+      killall # For Killing All Instances Of Programs
+      pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
+      ripgrep # Improved Grep
+      tldr # what man page wish it could be
+      wget # Tool For Fetching Files With Links
+    ]
+    ++ [ nixify-pkgs.fastfetch ];
 
   environment.defaultPackages = with pkgs; [
     fd # best alternative for find

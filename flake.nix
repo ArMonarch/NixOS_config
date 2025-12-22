@@ -6,6 +6,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # NixOS official package source, using the nixos-unstable branch
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Armonarch nixpkgs
+    nixify = {
+      url = "github:ArMonarch/Nixify";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     # Stylix theming frammwork.
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
@@ -22,6 +27,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      nixify,
       ...
     }@inputs:
     {
@@ -58,6 +64,7 @@
             inherit (import ./profiles/lunar/variables.nix) host;
             inherit (import ./profiles/lunar/variables.nix) hostname;
             system = "x86_64-linux";
+            nixify-pkgs = nixify.legacyPackages.${system};
           in
           nixpkgs.lib.nixosSystem {
             inherit system;
@@ -68,6 +75,7 @@
               inherit inputs;
               inherit nixpkgs;
               inherit nixpkgs-unstable;
+              inherit nixify-pkgs;
             };
             modules = [
               ./profiles/lunar/default.nix
