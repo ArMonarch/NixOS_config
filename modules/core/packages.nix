@@ -1,4 +1,9 @@
-{ pkgs, nixify-pkgs, ... }:
+{
+  pkgs,
+  lib,
+  nixify-pkgs,
+  ...
+}:
 {
   programs = {
     firefox.enable = true;
@@ -55,7 +60,6 @@
     nerd-fonts.jetbrains-mono # Nerd Font jetbrains-mono
     scrcpy # Display & Control Android Device
     postgresql_16 # Postgres database
-    v4l-utils # Used For Things Like OBS Virtual Camera
     wl-clipboard # Clipboard helper for wayland
   ];
 }

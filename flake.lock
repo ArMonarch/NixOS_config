@@ -168,11 +168,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1766393754,
-        "narHash": "sha256-p8jJlcQLoiebZjzwbqCLUaqTqjkezxpE6hgTPvQXfR0=",
+        "lastModified": 1766405920,
+        "narHash": "sha256-E4jPn7+3Xx6qCA+BSrMWyedOoixYOioZBTIzQZBqsBA=",
         "owner": "ArMonarch",
         "repo": "Nixify",
-        "rev": "094a6ac1bd18af5d83395fa53e2262ecb3cade56",
+        "rev": "7eb838533777c1d73bd1913956f04c89c8ad7281",
         "type": "github"
       },
       "original": {
