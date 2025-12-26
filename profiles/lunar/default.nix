@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  nixify,
+  host,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix # Define the result of the hardware scan.
@@ -28,5 +33,9 @@
     # Home Manager setup
     inputs.home-manager.nixosModules.home-manager
     ./home.nix
+
+    # test nixify nixosModules
+    nixify.nixosModules.nixify
+    ./nixify.nix
   ];
 }

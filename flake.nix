@@ -4,18 +4,19 @@
   inputs = {
     # NixOS official package source, using the nixos-25.05 branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+
     # NixOS official package source, using the nixos-unstable branch
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     # Armonarch nixpkgs
-    nixify = {
-      url = "github:ArMonarch/Nixify";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    nixify.url = "git+file:///home/frenzfries/Project/Nixify";
+
     # Stylix theming frammwork.
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Add Home-Manager as NixOS Module
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -75,6 +76,7 @@
               inherit inputs;
               inherit nixpkgs;
               inherit nixpkgs-unstable;
+              inherit nixify;
               inherit nixify-pkgs;
             };
             modules = [

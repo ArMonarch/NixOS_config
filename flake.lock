@@ -161,33 +161,31 @@
     },
     "nixify": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
+        "nixpkgs": "nixpkgs",
         "systems": "systems",
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1766405920,
-        "narHash": "sha256-E4jPn7+3Xx6qCA+BSrMWyedOoixYOioZBTIzQZBqsBA=",
-        "owner": "ArMonarch",
-        "repo": "Nixify",
-        "rev": "7eb838533777c1d73bd1913956f04c89c8ad7281",
-        "type": "github"
+        "lastModified": 1766732646,
+        "narHash": "sha256-7Jl8z0Yzjo3rL5NM+A3HR8epzFpMJoHc59LXk69h/v4=",
+        "ref": "refs/heads/master",
+        "rev": "d7239b5e895fa5a8c13b147ffae1a0621435d128",
+        "revCount": 10,
+        "type": "git",
+        "url": "file:///home/frenzfries/Project/Nixify"
       },
       "original": {
-        "owner": "ArMonarch",
-        "repo": "Nixify",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/frenzfries/Project/Nixify"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1766014764,
-        "narHash": "sha256-+73VffE5GP5fvbib6Hs1Su6LehG+9UV1Kzs90T2gBLA=",
+        "lastModified": 1766399428,
+        "narHash": "sha256-vS6LSOMDOB3s+L6tqw9IGujxnmUAZQnEG+Vi640LayI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2b0d2b456e4e8452cf1c16d00118d145f31160f9",
+        "rev": "a6c3a6141ec1b367c58ead3f7f846c772a25f4e5",
         "type": "github"
       },
       "original": {
@@ -209,6 +207,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1766014764,
+        "narHash": "sha256-+73VffE5GP5fvbib6Hs1Su6LehG+9UV1Kzs90T2gBLA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2b0d2b456e4e8452cf1c16d00118d145f31160f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -243,7 +257,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixify": "nixify",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "stylix": "stylix"
       }
