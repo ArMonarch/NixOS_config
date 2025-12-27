@@ -17,6 +17,11 @@
       inherit system;
     };
     users.${host} = {
+      home = {
+        username = "${host}";
+        homeDirectory = "/home/${host}";
+        stateVersion = "25.11";
+      };
       imports = [
         ../../modules/home/eza.nix
         ../../modules/home/fish.nix
@@ -30,11 +35,6 @@
         ../../modules/home/plasma/default.nix
         ../../modules/home/spectacle/default.nix
       ];
-      home = {
-        username = "${host}";
-        homeDirectory = "/home/${host}";
-        stateVersion = "25.05";
-      };
     };
   };
 }

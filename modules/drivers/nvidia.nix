@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # Cooling Management.
   services.thermald.enable = lib.mkDefault true;
 
@@ -50,6 +51,6 @@
   # Additional useful packages
   environment.systemPackages = with pkgs; [
     vulkan-tools
-    glxinfo
+    mesa-demos
   ];
 }

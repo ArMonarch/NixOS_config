@@ -1,12 +1,15 @@
-_: let
+_:
+let
   inherit (import ../../profiles/lunar/variables.nix) gitUsername gitEmail;
-in {
+in
+{
   programs.git = {
     enable = true;
-    userName = "${gitUsername}";
-    userEmail = "${gitEmail}";
 
-    extraConfig = {
+    settings = {
+      user.name = gitUsername;
+      user.email = gitEmail;
+
       push.default = "simple"; # Match modern push behavior
       core.askPass = ""; # needs to be empty to use terminal for ask pass
       # Cache timeout set to 6 Hrs
@@ -23,8 +26,6 @@ in {
       # Conflict resolution style for readable diffs
       merge.conflictStyle = "diff3";
     };
-
-    aliases = {};
   };
 
   # Optional: FOSS-friendly Git aliases will be added through fish.nix
