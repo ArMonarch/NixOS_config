@@ -9,7 +9,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Armonarch nixpkgs
-    nixify.url = "git+file:///home/frenzfries/Project/Nixify";
+    nixify.url = "github:ArMonarch/Nixify/master";
 
     # Stylix theming frammwork.
     stylix = {
@@ -76,7 +76,6 @@
               inherit inputs;
               inherit nixpkgs;
               inherit nixpkgs-unstable;
-              inherit nixify;
               inherit nixify-pkgs;
             };
             modules = [

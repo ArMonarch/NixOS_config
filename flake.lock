@@ -166,17 +166,18 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1766732646,
-        "narHash": "sha256-7Jl8z0Yzjo3rL5NM+A3HR8epzFpMJoHc59LXk69h/v4=",
-        "ref": "refs/heads/master",
-        "rev": "d7239b5e895fa5a8c13b147ffae1a0621435d128",
-        "revCount": 10,
-        "type": "git",
-        "url": "file:///home/frenzfries/Project/Nixify"
+        "lastModified": 1766765716,
+        "narHash": "sha256-Q7mWnW7Rz+24rRotF/z0P0kk0xGP/1WNxyNxXJ5KfFA=",
+        "owner": "ArMonarch",
+        "repo": "Nixify",
+        "rev": "20569d906af71034bef492ff87965bc72b8d1d64",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/frenzfries/Project/Nixify"
+        "owner": "ArMonarch",
+        "ref": "master",
+        "repo": "Nixify",
+        "type": "github"
       }
     },
     "nixpkgs": {

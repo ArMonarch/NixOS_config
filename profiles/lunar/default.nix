@@ -1,7 +1,5 @@
 {
   inputs,
-  nixify,
-  host,
   ...
 }:
 {
@@ -33,9 +31,5 @@
     # Home Manager setup
     inputs.home-manager.nixosModules.home-manager
     ./home.nix
-
-    # test nixify nixosModules
-    nixify.nixosModules.nixify
-    ./nixify.nix
   ];
 }
