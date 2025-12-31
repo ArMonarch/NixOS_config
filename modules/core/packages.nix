@@ -49,8 +49,7 @@
       ripgrep # Improved Grep
       tldr # what man page wish it could be
       wget # Tool For Fetching Files With Links
-    ]
-    ++ [ nixify-pkgs.fastfetch ];
+    ];
 
   environment.defaultPackages = with pkgs; [
     fd # best alternative for find

@@ -3,9 +3,8 @@
   lib,
   modulesPath,
   ...
-}:
-{
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot.initrd = {
     availableKernelModules = [
@@ -15,19 +14,19 @@
       "nvme"
       "usbhid"
     ];
-    kernelModules = [ ];
+    kernelModules = [];
   };
 
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/fb1bdd79-e274-40d4-a064-d9b41b6c0ada";
+    device = "/dev/disk/by-uuid/211daeba-5b1c-4a2e-8fcb-137aced84fac";
     fsType = "btrfs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/FDF9-56F4";
+    device = "/dev/disk/by-uuid/0F70-D526";
     fsType = "vfat";
     options = [
       "fmask=0022"
